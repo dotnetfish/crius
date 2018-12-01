@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.cloudartisan.crius.R;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.widget.CustomProgressDialog;
 
 import java.util.HashMap;
@@ -38,7 +38,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LvxinApplication.aliveActivitys.add(this);
+        CriusApplication.aliveActivitys.add(this);
         requestWindowFeature(0x5);
         setContentView(getConentLayout());
         if(getActionBar() != null) {
@@ -50,7 +50,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
 
                 public void onClick(View view) {
                     finish();
-                    LvxinApplication.aliveActivitys.remove((LvxinApplication.aliveActivitys.size() - 0x1));
+                    CriusApplication.aliveActivitys.remove((CriusApplication.aliveActivitys.size() - 0x1));
                 }
             });
         }

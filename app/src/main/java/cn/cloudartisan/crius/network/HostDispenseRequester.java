@@ -6,9 +6,10 @@
 package cn.cloudartisan.crius.network;
 
 import com.alibaba.fastjson.TypeReference;
+
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.client.android.CIMPushManager;
 import cn.cloudartisan.crius.client.constant.CIMConstant;
-import cn.cloudartisan.crius.app.LvxinApplication;
 import cn.cloudartisan.crius.app.URLConstant;
 import cn.cloudartisan.crius.bean.Page;
 
@@ -32,7 +33,7 @@ public class HostDispenseRequester extends HttpAPIRequester implements HttpAPIRe
     
     public void onSuccess(Object data, List list, Page page, String code, String url) {
         if((CIMConstant.ReturnCode.CODE_200.equals(code)) && (data != null)) {
-            CIMPushManager.init(LvxinApplication.getInstance(), data.toString(), 0x70d8);
+            CIMPushManager.init(CriusApplication.getInstance(), data.toString(), 0x70d8);
         }
     }
     

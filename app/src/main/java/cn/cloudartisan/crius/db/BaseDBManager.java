@@ -2,7 +2,7 @@ package cn.cloudartisan.crius.db;
 
 import android.content.Context;
 import cn.cloudartisan.crius.app.Global;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public abstract class BaseDBManager<T, ID>
 {
-  Context _context = LvxinApplication.getInstance();
+  Context _context = CriusApplication.getInstance();
   Dao<T, ID> databaseDao;
   GlobalDatabaseHelper mDatabaseHelper = GlobalDatabaseHelper.getHelper(this._context, getDatabaseName());
   

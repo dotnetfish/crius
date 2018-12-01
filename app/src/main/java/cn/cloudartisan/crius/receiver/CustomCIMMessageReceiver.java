@@ -8,13 +8,14 @@ package cn.cloudartisan.crius.receiver;
 import android.content.Intent;
 import android.net.NetworkInfo;
 import android.util.Log;
+
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.client.android.CIMEventBroadcastReceiver;
 import cn.cloudartisan.crius.client.android.CIMEventListener;
 import cn.cloudartisan.crius.client.android.CIMListenerManager;
 import cn.cloudartisan.crius.client.model.Message;
 import cn.cloudartisan.crius.client.model.ReplyBody;
 import cn.cloudartisan.crius.app.GlobalMediaPlayer;
-import cn.cloudartisan.crius.app.LvxinApplication;
 import cn.cloudartisan.crius.db.MessageDBManager;
 import cn.cloudartisan.crius.message.handler.CustomMessageHandlerFactory;
 import cn.cloudartisan.crius.network.MessageReceiptHandler;
@@ -41,7 +42,7 @@ public final class CustomCIMMessageReceiver extends CIMEventBroadcastReceiver {
                 ((CIMEventListener)CIMListenerManager.getCIMListeners().get(var2)).onMessageReceived(message);
             }*/
 
-            if(beanMessage.isNeedSound() && !LvxinApplication.getTopActivity().equals(HomeActivity.class.getName()) && !LvxinApplication.getTopActivity().equals(GroupChatActivity.class.getName()) && !LvxinApplication.getTopActivity().equals(FriendChatActivity.class.getName()) && !LvxinApplication.getTopActivity().equals(BottleChatActivity.class.getName())) {
+            if(beanMessage.isNeedSound() && !CriusApplication.getTopActivity().equals(HomeActivity.class.getName()) && !CriusApplication.getTopActivity().equals(GroupChatActivity.class.getName()) && !CriusApplication.getTopActivity().equals(FriendChatActivity.class.getName()) && !CriusApplication.getTopActivity().equals(BottleChatActivity.class.getName())) {
                 GlobalMediaPlayer.getPlayer().playMessageSound();
             }
 

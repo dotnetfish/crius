@@ -20,7 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import cn.cloudartisan.crius.R;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 
 public class SimpleInputPanelView extends LinearLayout implements View.OnClickListener, EmoticoPanelView.OnEmoticoSelectedListener, TextWatcher, View.OnTouchListener {
     Context _context;
@@ -115,7 +115,7 @@ public class SimpleInputPanelView extends LinearLayout implements View.OnClickLi
             return;
         }
         SpannableString ss = new SpannableString(key);
-        int id =LvxinApplication.emoticonsIdMap.get(key);
+        int id =CriusApplication.emoticonsIdMap.get(key);
         Drawable drawable = getResources().getDrawable(id);
         if(drawable != null) {
             int size = (int)(0.5f + (getResources().getDisplayMetrics().density * 20.0f));

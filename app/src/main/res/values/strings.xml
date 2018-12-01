@@ -159,6 +159,7 @@
     <string name="label_circle_message">圈子消息</string>
     <string name="label_circle_my">我的圈子</string>
     <string name="label_bottle_list">我的瓶子</string>
+    <string name="label_respository_product_manager">库存商品管理</string>
     <string name="label_bottle_throw">扔一个</string>
     <string name="label_bottle_get">捡一个</string>
     <string name="label_bottle_record">我的瓶子</string>

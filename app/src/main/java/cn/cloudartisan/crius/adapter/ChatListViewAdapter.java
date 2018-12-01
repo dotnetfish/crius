@@ -16,8 +16,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import cn.cloudartisan.crius.R;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.app.Global;
-import cn.cloudartisan.crius.app.LvxinApplication;
 import cn.cloudartisan.crius.bean.*;
 import cn.cloudartisan.crius.component.ChatListView;
 import cn.cloudartisan.crius.component.FromMessageView;
@@ -164,6 +164,6 @@ public class ChatListViewAdapter extends BaseAdapter implements ChatListView.OnM
         notifyDataSetChanged();
         Intent intent = new Intent("com.farsunset.cim.DELETE_APPEND");
         intent.putExtra(ChatItem.NAME, new ChatItem(msg, others));
-        LvxinApplication.getInstance().sendBroadcast(intent);
+        CriusApplication.getInstance().sendBroadcast(intent);
     }
 }

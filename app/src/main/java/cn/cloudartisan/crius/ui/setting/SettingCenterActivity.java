@@ -11,7 +11,7 @@ import android.view.View;
 import cn.cloudartisan.crius.client.android.CIMPushManager;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.app.Global;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.bean.User;
 import cn.cloudartisan.crius.network.UpgradeManger;
 import cn.cloudartisan.crius.ui.LoginActivity;
@@ -70,7 +70,7 @@ public class SettingCenterActivity extends BaseActivity {
     
     public void doLogout() {
         Global.removePassword();
-        LvxinApplication.finishAllActivity();
+        CriusApplication.finishAllActivity();
         CIMPushManager.stop(this);
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
@@ -78,7 +78,7 @@ public class SettingCenterActivity extends BaseActivity {
     
     public void doEdxit() {
         CIMPushManager.destory(this);
-        LvxinApplication.finishAllActivity();
+        CriusApplication.finishAllActivity();
         Process.killProcess(Process.myPid());
     }
     

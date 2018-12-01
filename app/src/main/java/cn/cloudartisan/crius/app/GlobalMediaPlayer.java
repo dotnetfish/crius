@@ -23,7 +23,7 @@ public class GlobalMediaPlayer {
     
     private GlobalMediaPlayer() {
         mMediaPlayer = new MediaPlayer();
-        resource = LvxinApplication.getInstance().getResources();
+        resource = CriusApplication.getInstance().getResources();
     }
     
     public static synchronized GlobalMediaPlayer getPlayer() {
@@ -74,7 +74,7 @@ public void playMessageSound() {
         play(R.raw.dingdong);
     }
     if("3".equals(configs.get("message_sound_type"))) {
-        RingtoneManager.getRingtone(LvxinApplication.getInstance(), RingtoneManager.getDefaultUri(0x2)).play();
+        RingtoneManager.getRingtone(CriusApplication.getInstance(), RingtoneManager.getDefaultUri(0x2)).play();
     }
 }
 }

@@ -16,7 +16,7 @@
         <GridView android:id="@+id/fun_grid"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:numColumns="3"
+                  android:numColumns="2"
                   android:verticalSpacing="0.5dp"
                   android:horizontalSpacing="0.5dp"
                   android:gravity="center"
@@ -26,7 +26,7 @@
         </GridView>
 
     </LinearLayout>
--
+
 <GridView android:id="@+id/gv_icon" android:layout_width="match_parent"
           android:layout_height="wrap_content"
         android:numColumns="3"

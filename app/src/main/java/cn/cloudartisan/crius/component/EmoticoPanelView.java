@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.adapter.ViewPaperAdapter;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,16 +47,16 @@ public class EmoticoPanelView extends LinearLayout implements AdapterView.OnItem
         emoticoPadding = context.getResources().getDimensionPixelOffset(R.dimen.inputpanel_emotico_padding);
         emoticoViewPagerTagPanel = (LinearLayout)findViewById(R.id.emoticoViewPagerTagPanel);
         viewPager = (ViewPager)findViewById(R.id.emoticoViewPager);
-        for(int var1 = 0; var1 < (LvxinApplication.emoticonList.size() - 1) / 28 + 1; ++var1) {
+        for(int var1 = 0; var1 < (CriusApplication.emoticonList.size() - 1) / 28 + 1; ++var1) {
             GridView var2 = (GridView)LayoutInflater.from(this.context).inflate(R.layout.emoticon_gridview,null);
             ArrayList var3 = new ArrayList();
             ArrayList var4 = new ArrayList();
-            if(LvxinApplication.emoticonList.size() < (var1 + 1) * 28) {
-                var3.addAll(LvxinApplication.emoticonList.subList(var1 * 28, LvxinApplication.emoticonList.size()));
-                var4.addAll(LvxinApplication.emoticonKeyList.subList(var1 * 28, LvxinApplication.emoticonKeyList.size()));
+            if(CriusApplication.emoticonList.size() < (var1 + 1) * 28) {
+                var3.addAll(CriusApplication.emoticonList.subList(var1 * 28, CriusApplication.emoticonList.size()));
+                var4.addAll(CriusApplication.emoticonKeyList.subList(var1 * 28, CriusApplication.emoticonKeyList.size()));
             } else {
-                var3.addAll(LvxinApplication.emoticonList.subList(var1 * 28, (var1 + 1) * 28));
-                var4.addAll(LvxinApplication.emoticonKeyList.subList(var1 * 28, (var1 + 1) * 28));
+                var3.addAll(CriusApplication.emoticonList.subList(var1 * 28, (var1 + 1) * 28));
+                var4.addAll(CriusApplication.emoticonKeyList.subList(var1 * 28, (var1 + 1) * 28));
             }
 
             var2.setAdapter(new EmoticoPanelView.EmoticoGridViewAdapter(var3, var4));
@@ -72,7 +72,7 @@ public class EmoticoPanelView extends LinearLayout implements AdapterView.OnItem
     }
     
     public void onItemClick(AdapterView<?> gridView, View view, int index, long arg3) {
-        String key =LvxinApplication.emoticonKeyList.get(((gridView.getId() * 0x1c) + index));
+        String key =CriusApplication.emoticonKeyList.get(((gridView.getId() * 0x1c) + index));
         emoticoSelectedListener.onEmoticoSelected(key);
     }
     

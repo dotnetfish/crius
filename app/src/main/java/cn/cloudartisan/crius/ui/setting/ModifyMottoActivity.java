@@ -50,7 +50,7 @@ public class ModifyMottoActivity extends BaseActivity {
             sent.put("account", user.getAccount());
             sent.put("name", user.getName());
             sent.put("motto", user.getMotto());
-            CIMPushManager.sendRequest(this, sent);
+            //CIMPushManager.sendRequest(this, sent);
             showToast(R.string.tip_save_complete);
             finish();
         }

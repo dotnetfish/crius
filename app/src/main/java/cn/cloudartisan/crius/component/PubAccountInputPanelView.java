@@ -25,7 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.cloudartisan.crius.R;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.bean.PublicMenu;
 import cn.cloudartisan.crius.util.PubMenuAscComparator;
 import cn.cloudartisan.crius.widget.PubAccountMenuWindow;
@@ -249,7 +249,7 @@ public class PubAccountInputPanelView extends FrameLayout implements View.OnClic
             return;
         }
         SpannableString ss = new SpannableString(key);
-        int id = LvxinApplication.emoticonsIdMap.get(key).intValue();
+        int id = CriusApplication.emoticonsIdMap.get(key).intValue();
         Drawable drawable = getResources().getDrawable(id);
         if(drawable != null) {
             int size = (int)(0.5f + (getResources().getDisplayMetrics().density * 20.0f));

@@ -6,14 +6,14 @@
 package cn.cloudartisan.crius.util;
 
 import android.view.View;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Animation;
 
 public class AnimationTools {
     
     public static void start(int aid, View view, AnimationTools.OnAnimationListener listener) {
-        Animation a = AnimationUtils.loadAnimation(LvxinApplication.getInstance(), aid);
+        Animation a = AnimationUtils.loadAnimation(CriusApplication.getInstance(), aid);
         start(a, view, listener);
     }
     

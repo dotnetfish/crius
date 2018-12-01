@@ -10,7 +10,7 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import cn.cloudartisan.crius.app.Global;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.bean.Message;
 import cn.cloudartisan.crius.bean.PubMenuEvent;
 import cn.cloudartisan.crius.bean.PublicAccount;
@@ -78,12 +78,12 @@ public class PublicAccountMenuHander {
                     }
                     Intent intent = new Intent("com.farsunset.cim.MESSAGE_RECEIVED");
                     intent.putExtra("message", message);
-                    LvxinApplication.getInstance().sendBroadcast(intent);
+                    CriusApplication.getInstance().sendBroadcast(intent);
                     msg.status = "1";
                 } catch(Exception e) {
                     msg.status = "-3";
                 }
-                LvxinApplication.getInstance().sendBroadcast(statusintent);
+                CriusApplication.getInstance().sendBroadcast(statusintent);
             }
         });
     }

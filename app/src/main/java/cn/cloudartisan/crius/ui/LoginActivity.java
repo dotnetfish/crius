@@ -23,24 +23,25 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.client.android.CIMPushManager;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.app.Global;
-import cn.cloudartisan.crius.app.LvxinApplication;
 import cn.cloudartisan.crius.bean.Page;
 import cn.cloudartisan.crius.bean.User;
-import cn.cloudartisan.crius.client.constant.CIMConstant;
 import cn.cloudartisan.crius.component.WebImageView;
 import cn.cloudartisan.crius.db.GlobalDatabaseHelper;
 import cn.cloudartisan.crius.network.HttpAPIRequester;
 import cn.cloudartisan.crius.network.HttpAPIResponser;
 import cn.cloudartisan.crius.service.CycleLocationService;
+import cn.cloudartisan.crius.service.adapter.ServiceAdapterFactory;
+import cn.cloudartisan.crius.service.adapter.Adapter;
 import cn.cloudartisan.crius.ui.base.BaseActivity;
 import cn.cloudartisan.crius.util.FileURLBuilder;
 
 //import org.springframework.context.ApplicationContext;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +86,9 @@ public class LoginActivity extends BaseActivity implements TextWatcher, HttpAPIR
                // onTextChanged(text, arg1, arg2, arg3);
             }
         });
+        if(passwordEdit.getText().length()>0){
+            loginButton.setEnabled(true);
+        }
         passwordEdit.addTextChangedListener(this);
         requester = new HttpAPIRequester(this);
         DisplayImageOptions.Builder builder = new DisplayImageOptions.Builder();
@@ -155,9 +159,12 @@ public class LoginActivity extends BaseActivity implements TextWatcher, HttpAPIR
         JSONObject json=(JSONObject)data;
         hideProgressDialog();
         if(json!=null && json.getBoolean("success")){
-            User user=new User();
+            Adapter<User> userAdapter=ServiceAdapterFactory.getUserAdapter();
+            User user=userAdapter.fromJson(json);
+
+
             try {
-               // ApplicationContext context = LvxinApplication.getInstance().getBBitContext();
+               // ApplicationContext context = CriusApplication.getInstance().getBBitContext();
               //  UserService userService = (UserService) context.getBean("buaAccessClientUserService");
                // com.beyondbit.sao.client.domain.bua.User buaUser = userService.getUserInfo(accountEdit.getText().toString().trim());
                // user.setGender(buaUser.getUserSex());
@@ -166,17 +173,14 @@ public class LoginActivity extends BaseActivity implements TextWatcher, HttpAPIR
             }catch (Exception ex){
 
             }
-            user.setMotto(json.getString("token"));
-           // user.setGender(((JSONObject)(json.get("user"))).getString("Gender"));
-            user.setAccount(accountEdit.getText().toString().trim());
-            user.setUserToken(json.getString("token"));
-            user.setName(json.getString("user_name"));
+
             //user.set
             Global.setCurrentUser(user);
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
-            LvxinApplication.finishTarget(WelcomeActivity.class);
+            CriusApplication.finishTarget(WelcomeActivity.class);
             finish();
+
         }else{
             String str=json.getString("message");
             showToast(str);
@@ -185,7 +189,7 @@ public class LoginActivity extends BaseActivity implements TextWatcher, HttpAPIR
             Global.setCurrentUser((User) data);
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
-            LvxinApplication.finishTarget(WelcomeActivity.class);
+            CriusApplication.finishTarget(WelcomeActivity.class);
             finish();
         }
         hideProgressDialog();

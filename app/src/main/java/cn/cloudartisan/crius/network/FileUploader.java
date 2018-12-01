@@ -33,7 +33,7 @@ public class FileUploader {
                     Intent intent = new Intent("com.farsunset.lvxin.UPLOAD_PROGRESS");
                     intent.putExtra("objectKey", key);
                     intent.putExtra("progress", 100.0f);
-                    LvxinApplication.getInstance().sendBroadcast(intent);
+                    CriusApplication.getInstance().sendBroadcast(intent);
                 }
                 
                 public void onProgress(String key, int byteCount, int totalSize) {
@@ -43,7 +43,7 @@ public class FileUploader {
                     Intent intent = new Intent("com.farsunset.lvxin.UPLOAD_PROGRESS");
                     intent.putExtra("objectKey", key);
                     intent.putExtra("progress", (((float)byteCount / (float)totalSize) * 100.0f));
-                    LvxinApplication.getInstance().sendBroadcast(intent);
+                    CriusApplication.getInstance().sendBroadcast(intent);
                 }
                 
                 public void onFailure(String key, OSSException ossException) {
@@ -54,7 +54,7 @@ public class FileUploader {
                     Intent intent = new Intent("com.farsunset.lvxin.UPLOAD_PROGRESS");
                     intent.putExtra("objectKey", key);
                     intent.putExtra("progress", -1.0f);
-                    LvxinApplication.getInstance().sendBroadcast(intent);
+                    CriusApplication.getInstance().sendBroadcast(intent);
                 }
             });
             return;

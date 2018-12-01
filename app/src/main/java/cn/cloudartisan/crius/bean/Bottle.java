@@ -4,8 +4,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import cn.cloudartisan.crius.R;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.app.Global;
-import cn.cloudartisan.crius.app.LvxinApplication;
 import cn.cloudartisan.crius.util.FileURLBuilder;
 
 import java.io.Serializable;
@@ -74,7 +74,7 @@ public class Bottle
   @JSONField(serialize=false)
   public String getTitle()
   {
-    return LvxinApplication.getInstance().getString(R.string.label_function_bottle);
+    return CriusApplication.getInstance().getString(R.string.label_function_bottle);
   }
   
   @JSONField(serialize=false)

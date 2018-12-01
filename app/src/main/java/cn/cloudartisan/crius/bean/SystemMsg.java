@@ -1,7 +1,7 @@
 package cn.cloudartisan.crius.bean;
 
 import cn.cloudartisan.crius.R;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 
 import java.io.Serializable;
 
@@ -35,15 +35,15 @@ public class SystemMsg
   public static String getTypeText(String paramString)
   {
     if ("2".equals(paramString)) {
-      return LvxinApplication.getInstance().getString(R.string.common_sysmessage);
+      return CriusApplication.getInstance().getString(R.string.common_sysmessage);
     }
     if ("100".equals(paramString)) {
-      return LvxinApplication.getInstance().getString(R.string.tip_title_friendmessage);
+      return CriusApplication.getInstance().getString(R.string.tip_title_friendmessage);
     }
     if (("102".equals(paramString)) || ("105".equals(paramString))) {
-      return LvxinApplication.getInstance().getString(R.string.tip_title_groupmessage);
+      return CriusApplication.getInstance().getString(R.string.tip_title_groupmessage);
     }
-    return LvxinApplication.getInstance().getString(R.string.common_sysmessage);
+    return CriusApplication.getInstance().getString(R.string.common_sysmessage);
   }
   
   public boolean equals(Object paramObject)
@@ -82,7 +82,7 @@ public class SystemMsg
   
   public String getName()
   {
-    return LvxinApplication.getInstance().getString(R.string.common_system);
+    return CriusApplication.getInstance().getString(R.string.common_system);
   }
   
   public String getSourceType()

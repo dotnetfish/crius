@@ -6,7 +6,7 @@
 package cn.cloudartisan.crius.util;
 
 import android.content.Context;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 
 public class GlobalExceptionListener implements Thread.UncaughtExceptionHandler {
     Context mcontext;
@@ -27,7 +27,7 @@ public class GlobalExceptionListener implements Thread.UncaughtExceptionHandler 
     public void uncaughtException(Thread thread, Throwable ex) {
         CrashLogUtils.getInstace().saveErrorLogToFile(ex);
         ex.printStackTrace();
-        LvxinApplication.finishAllActivity();
+        CriusApplication.finishAllActivity();
         //TODO:uncomment this when release
         //android.os.Process.killProcess();
         android.os.Process.killProcess(android.os.Process.myPid());

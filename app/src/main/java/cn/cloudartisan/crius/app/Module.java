@@ -18,6 +18,8 @@ public class Module {
 
     private  String vAlign;
 
+    private int msgCount;
+
 
     public String getIcon() {
         return icon;
@@ -84,5 +86,13 @@ public class Module {
         module.setShowType((String) json.get("showType"));
         module.setSort((String) json.get("sort"));
         return module;
+    }
+
+    public int getMsgCount() {
+        return msgCount;
+    }
+
+    public void setMsgCount(int msgCounte) {
+        this.msgCount = msgCounte;
     }
 }

@@ -13,11 +13,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import org.json.JSONArray;
+
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.app.Global;
 import cn.cloudartisan.crius.app.Module;
@@ -30,7 +36,10 @@ import cn.cloudartisan.crius.component.BaseWebActivity;
 import cn.cloudartisan.crius.component.WebImageView;
 import cn.cloudartisan.crius.db.ConfigDBManager;
 import cn.cloudartisan.crius.db.MessageDBManager;
+import cn.cloudartisan.crius.network.HttpAPIRequester;
 import cn.cloudartisan.crius.service.MessageNotifyService;
+import cn.cloudartisan.crius.service.adapter.Adapter;
+import cn.cloudartisan.crius.service.adapter.ServiceAdapterFactory;
 import cn.cloudartisan.crius.ui.base.CIMMonitorFragment;
 import cn.cloudartisan.crius.ui.trend.TrendCenterActivity;
 import cn.cloudartisan.crius.util.AppTools;
@@ -39,6 +48,7 @@ import cn.cloudartisan.crius.widget.CustomDialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -64,9 +74,26 @@ public class TrendDashboard     extends CIMMonitorFragment implements AdapterVie
 
 
         self = Global.getCurrentUser();
-        Module module = new Module();
+
+        showProgressDialog("processing");
+        try {
+            String json= HttpAPIRequester.httpGet("http://www.cloudartisan.cn/mvc/generalhandler.ashx?controller=moduleController&action=getmodules&siteId=1",
+                     new HashMap<String, String>());
+            Adapter<Module> adapter=ServiceAdapterFactory.getModuleAdapter();
+
+            com.alibaba.fastjson.JSONArray jsonArray =JSON.parseArray(json);
+            for (Object obj: jsonArray
+                 ) {
+                modules.add(adapter.fromJson((JSONObject) obj));
+            }
+
+        } catch (Exception e) {
+            //showToast("error");
+            e.printStackTrace();
+        }
+        /*Module module = new Module();
         module.setCode("quotation");
-        module.setIcon("http://wx.yljr888.com/images/templates/category/32.png");
+        module.setIcon("http://www.cloudartisan.cn/images/templates/category/32.png");
         module.setLink("http://fengdengjie.com/price/index.php");
         //module.setLink(URLConstant.API_URL);
         module.setShowType("WebView");
@@ -76,7 +103,7 @@ public class TrendDashboard     extends CIMMonitorFragment implements AdapterVie
 
         Module report = new Module();
         report.setCode("report");
-        report.setIcon("http://wx.yljr888.com/images/templates/category/33.png");
+        report.setIcon("http://www.cloudartisan.cn/images/templates/category/33.png");
         report.setLink(URLConstant.API_URL);
         report.setShowType("WebView");
         report.setDisplayName("report");
@@ -84,7 +111,7 @@ public class TrendDashboard     extends CIMMonitorFragment implements AdapterVie
         report.setvAlign("0");
         Module v = new Module();
         v.setCode("vv");
-        v.setIcon("http://wx.yljr888.com/images/templates/category/34.png");
+        v.setIcon("http://www.cloudartisan.cn/images/templates/category/34.png");
         v.setLink("http://www.cnblogs.com/");
         v.setShowType("WebView");
         v.setDisplayName("calendar");
@@ -92,7 +119,7 @@ public class TrendDashboard     extends CIMMonitorFragment implements AdapterVie
         v.setvAlign("0");
         Module f = new Module();
         f.setCode("vv");
-        f.setIcon("http://wx.yljr888.com/images/templates/category/35.png");
+        f.setIcon("http://www.cloudartisan.cn/images/templates/category/35.png");
         f.setLink("http://www.baidu..com/");
         f.setShowType("WebView");
         f.setDisplayName("calendar");
@@ -100,7 +127,7 @@ public class TrendDashboard     extends CIMMonitorFragment implements AdapterVie
         f.setvAlign("0");
         Module f1 = new Module();
         f1.setCode("vv");
-        f1.setIcon("http://wx.yljr888.com/images/templates/category/36.png");
+        f1.setIcon("http://www.cloudartisan.cn/images/templates/category/36.png");
         f1.setLink(TrendCenterActivity.class.getName());
         f1.setShowType("intent");
         f1.setDisplayName("发现");
@@ -108,7 +135,7 @@ public class TrendDashboard     extends CIMMonitorFragment implements AdapterVie
         f1.setvAlign("0");
         Module f2 = new Module();
         f2.setCode("vv");
-        f2.setIcon("http://wx.yljr888.com/images/templates/category/37.png");
+        f2.setIcon("http://www.cloudartisan.cn/images/templates/category/37.png");
         f2.setLink(URLConstant.API_URL);
         f2.setShowType("WebView");
         f2.setDisplayName("calendar");
@@ -119,9 +146,10 @@ public class TrendDashboard     extends CIMMonitorFragment implements AdapterVie
         modules.add(v);
         modules.add(f);
         modules.add(f1);
-        modules.add(f2);
+        modules.add(f2);*/
         this.gridViewAdapter=new IconGridAdapter(getContext());
     }
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 

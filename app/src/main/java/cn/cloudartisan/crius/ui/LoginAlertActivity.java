@@ -12,7 +12,8 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.content.Intent;
 import cn.cloudartisan.crius.R;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
+
 import android.os.Bundle;
 
 public class LoginAlertActivity extends Activity implements View.OnClickListener {
@@ -42,7 +43,7 @@ public class LoginAlertActivity extends Activity implements View.OnClickListener
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 finish();
-                LvxinApplication.finishAllActivity();
+                CriusApplication.finishAllActivity();
                 break;
             }
         }

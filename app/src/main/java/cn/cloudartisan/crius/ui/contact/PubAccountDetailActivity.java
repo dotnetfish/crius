@@ -17,7 +17,7 @@ import cn.cloudartisan.crius.client.constant.CIMConstant;
 import cn.cloudartisan.crius.client.model.Message;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.app.Global;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.app.URLConstant;
 import cn.cloudartisan.crius.bean.*;
 import cn.cloudartisan.crius.component.WebImageView;
@@ -103,7 +103,7 @@ public class PubAccountDetailActivity extends BaseActivity implements HttpAPIRes
             msg.setContent(JSON.toJSONString(textMsg));
             Intent intent = new Intent("com.farsunset.cim.MESSAGE_RECEIVED");
             intent.putExtra("message", msg);
-            LvxinApplication.getInstance().sendBroadcast(intent);
+            CriusApplication.getInstance().sendBroadcast(intent);
             Intent intent1 = new Intent(this, PubAccountChatActivity.class);
             intent1.putExtra(PublicAccount.NAME, publicAccount);
             startActivity(intent1);

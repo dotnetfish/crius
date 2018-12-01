@@ -5,9 +5,9 @@ buildscript {
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
-       /* google()
+      google()
         jcenter()
-        maven()*/
+        /*  maven()*/
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
@@ -22,8 +22,8 @@ allprojects {
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
-       /* google()
-        jcenter()*/
+       google()
+        jcenter()
     }
 }
 

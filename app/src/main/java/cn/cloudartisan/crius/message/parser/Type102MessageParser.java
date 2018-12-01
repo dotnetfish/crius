@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.adapter.SystemMsgListViewAdapter;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.bean.Message;
 import cn.cloudartisan.crius.bean.SystemMsg;
 import cn.cloudartisan.crius.bean.User;
@@ -52,12 +52,12 @@ public class Type102MessageParser extends MessageParser {
             holder.result_show.setVisibility(View.GONE);
         } else if(handleResult.equals(SystemMsg.RESULT_AGREE)) {
             holder.result_show.setText(R.string.common_has_agree);
-            holder.result_show.setTextColor(LvxinApplication.getInstance().getResources().getColor(R.color.theme_green));
+            holder.result_show.setTextColor(CriusApplication.getInstance().getResources().getColor(R.color.theme_green));
         } else if(handleResult.equals(SystemMsg.RESULT_IGNORE)) {
             holder.result_show.setText(R.string.common_has_ignore);
-            holder.result_show.setTextColor(LvxinApplication.getInstance().getResources().getColor(R.color.text_grey));
+            holder.result_show.setTextColor(CriusApplication.getInstance().getResources().getColor(R.color.text_grey));
         } else if(handleResult.equals(SystemMsg.RESULT_REFUSE)) {
-            holder.result_show.setTextColor(LvxinApplication.getInstance().getResources().getColor(R.color.red));
+            holder.result_show.setTextColor(CriusApplication.getInstance().getResources().getColor(R.color.red));
             holder.result_show.setText(R.string.common_has_refuse);
         }
         holder.headImageView.load(FileURLBuilder.getUserIconUrl(json.getString("sourceAccount")), R.drawable.icon_head_default);
@@ -70,7 +70,7 @@ public class Type102MessageParser extends MessageParser {
     public String getMessagePreview(Message message) {
         StringBuffer sb = new StringBuffer();
         JSONObject json = JSON.parseObject(message.content);
-        sb.append(LvxinApplication.getInstance().getString(R.string.tip_request_joingroup, new Object[] {json.getString("sourceName"), json.getString("targetGroupName")})).append(")").append(json.getString("requestMsg") == null ? "" : LvxinApplication.getInstance().getString(R.string.tip_request_verify, new Object[] {json.getString("requestMsg")}));
+        sb.append(CriusApplication.getInstance().getString(R.string.tip_request_joingroup, new Object[] {json.getString("sourceName"), json.getString("targetGroupName")})).append(")").append(json.getString("requestMsg") == null ? "" : CriusApplication.getInstance().getString(R.string.tip_request_verify, new Object[] {json.getString("requestMsg")}));
         return sb.toString();
     }
 }

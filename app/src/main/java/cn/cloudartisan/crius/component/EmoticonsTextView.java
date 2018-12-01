@@ -12,7 +12,8 @@ import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import cn.cloudartisan.crius.app.LvxinApplication;
+
+import cn.cloudartisan.crius.app.CriusApplication;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,11 +47,11 @@ public class EmoticonsTextView extends TextView {
     }
 
     private Pattern buildPattern() {
-        StringBuilder var2 = new StringBuilder(LvxinApplication.emoticonKeyList.size() * 3);
+        StringBuilder var2 = new StringBuilder(CriusApplication.emoticonKeyList.size() * 3);
         var2.append('(');
 
-        for(int var1 = 0; var1 < LvxinApplication.emoticonKeyList.size(); ++var1) {
-            var2.append(Pattern.quote(LvxinApplication.emoticonKeyList.get(var1)));
+        for(int var1 = 0; var1 < CriusApplication.emoticonKeyList.size(); ++var1) {
+            var2.append(Pattern.quote(CriusApplication.emoticonKeyList.get(var1)));
             var2.append('|');
         }
 
@@ -65,8 +66,8 @@ public class EmoticonsTextView extends TextView {
             Matcher matcher = pattern.matcher(text);
 
             if (!matcher.find()) {
-                if (LvxinApplication.emoticonsIdMap.containsKey(matcher.group())) {
-                    Integer id =  LvxinApplication.emoticonsIdMap.get(matcher.group());
+                if (CriusApplication.emoticonsIdMap.containsKey(matcher.group())) {
+                    Integer id =  CriusApplication.emoticonsIdMap.get(matcher.group());
                     Drawable drawable = getResources().getDrawable(id);
                     if (drawable != null) {
                         int size = (int) (0.5f + (getResources().getDisplayMetrics().density * (float) faceSize));

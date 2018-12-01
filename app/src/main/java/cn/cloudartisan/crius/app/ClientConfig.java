@@ -16,72 +16,72 @@ public class ClientConfig {
     static final String MODEL_KEY = "CLIENT_CONFIG";
     
     public static void disturbEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putBoolean(KEY_DISTURB_SWITCH, true).commit();
     }
     
     public static void disturbDisEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putBoolean(KEY_DISTURB_SWITCH, false).commit();
     }
     
     public static boolean disturbIsEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         return sp.getBoolean(KEY_DISTURB_SWITCH, true);
     }
     
     public static void notifyEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putBoolean(KEY_NOTIFY_SWITCH, true).commit();
     }
     
     public static void notifyDisEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putBoolean(KEY_NOTIFY_SWITCH, false).commit();
     }
     
     public static boolean notifyIsEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         return sp.getBoolean(KEY_NOTIFY_SWITCH, true);
     }
     
     public static void soundEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putBoolean(KEY_MESSAGE_SOUND_SWITCH, true).commit();
     }
     
     public static void soundDisEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putBoolean("KEY_MESSAGE_SOUND_SWITCH", false).commit();
     }
     
     public static boolean soundIsEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         return sp.getBoolean("KEY_MESSAGE_SOUND_SWITCH", true);
     }
     
     public static void shakeSoundEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putBoolean("KEY_MESSAGE_SOUND_SWITCH", true).commit();
     }
     
     public static void shakeSoundDisEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putBoolean("KEY_MESSAGE_SOUND_SWITCH", false).commit();
     }
     
     public static boolean shakeSoundIsEnable() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         return sp.getBoolean("KEY_MESSAGE_SOUND_SWITCH", true);
     }
     
     public static void setCurrentRegion(String region) {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         sp.edit().putString("KEY_CURRNET_REGION", region).commit();
     }
     
     public static String getCurrentRegion() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences("CLIENT_CONFIG", 0x0);
         return sp.getString("KEY_CURRNET_REGION", null);
     }
 }

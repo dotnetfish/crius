@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.adapter.SystemMsgListViewAdapter;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.bean.Friend;
 import cn.cloudartisan.crius.bean.Message;
 import cn.cloudartisan.crius.bean.User;
@@ -22,7 +22,7 @@ public class Type101MessageParser extends MessageParser {
     
     public String getMessagePreview(Message msg) {
         StringBuffer sb = new StringBuffer();
-        sb.append(LvxinApplication.getInstance().getString(R.string.tip_agree_addfriend, new Object[] {JSON.parseObject(msg.content).getString("targetName")}));
+        sb.append(CriusApplication.getInstance().getString(R.string.tip_agree_addfriend, new Object[] {JSON.parseObject(msg.content).getString("targetName")}));
         return sb.toString();
     }
     

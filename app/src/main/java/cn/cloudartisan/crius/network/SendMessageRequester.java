@@ -9,7 +9,7 @@ import android.content.Intent;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import cn.cloudartisan.crius.client.constant.CIMConstant;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.app.URLConstant;
 import cn.cloudartisan.crius.bean.Message;
 import cn.cloudartisan.crius.bean.Page;
@@ -72,14 +72,14 @@ public class SendMessageRequester extends HttpAPIRequester implements HttpAPIRes
             message.status = "-3";
         }
         intent.putExtra(Message.NAME, message);
-        LvxinApplication.getInstance().sendBroadcast(intent);
+        CriusApplication.getInstance().sendBroadcast(intent);
     }
     
     public void onFailed(Exception e) {
         message.status = "-3";
         Intent intent = new Intent("com.farsunset.cim.SEND_STATUS_CHANGED");
         intent.putExtra(Message.NAME, message);
-        LvxinApplication.getInstance().sendBroadcast(intent);
+        CriusApplication.getInstance().sendBroadcast(intent);
     }
     
     public Map getRequestParams(String code) {

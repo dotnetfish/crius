@@ -25,7 +25,7 @@ public class Global {
 
          User   user = new User();
 
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences(MODEL_KEY, 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences(MODEL_KEY, 0x0);
         user.setAccount(sp.getString(KEY_USER_ACCOUNT, null)); ;
         user.setPassword(sp.getString(KEY_USER_PASSWORD, null));
         user.setName(sp.getString(KEY_USER_NAME, null));
@@ -41,7 +41,7 @@ public class Global {
     public static void setCurrentUser(User user) {
         if(user != null) {
            // user = u;
-            SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences(MODEL_KEY, 0x0);
+            SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences(MODEL_KEY, 0x0);
             SharedPreferences.Editor  editor=sp.edit();
             editor.putString(KEY_USER_ACCOUNT, user.getAccount());
             editor.putString(KEY_USER_PASSWORD, user.getPassword());
@@ -56,7 +56,7 @@ public class Global {
     }
     
     public static void removePassword() {
-        SharedPreferences sp = LvxinApplication.getInstance().getSharedPreferences(MODEL_KEY, 0x0);
+        SharedPreferences sp = CriusApplication.getInstance().getSharedPreferences(MODEL_KEY, 0x0);
         sp.edit().remove(KEY_USER_PASSWORD).commit();
     }
 }

@@ -14,7 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.app.Global;
-import cn.cloudartisan.crius.app.LvxinApplication;
+import cn.cloudartisan.crius.app.CriusApplication;
 import cn.cloudartisan.crius.bean.ChatItem;
 import cn.cloudartisan.crius.bean.Message;
 import cn.cloudartisan.crius.bean.MessageItemSource;
@@ -136,6 +136,6 @@ public class PubChatListViewAdapter extends BaseAdapter implements ChatListView.
         notifyDataSetChanged();
         Intent intent = new Intent("com.farsunset.cim.DELETE_APPEND");
         intent.putExtra(ChatItem.NAME, new ChatItem(msg, others));
-        LvxinApplication.getInstance().sendBroadcast(intent);
+        CriusApplication.getInstance().sendBroadcast(intent);
     }
 }
