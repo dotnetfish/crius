@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 
+		目前，这种加载方式只能设置一个服务，因为每个服务的配置文件中的key {${client.head.app.code} }都一样， 加载多个
+		后面的配置会覆盖前面的，除非分别改为{${bua.access.client.head.app.code}、${log.client.head.app.code}}。
+	-->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>bua-access-client-config.properties</value>
+				<value>ws/bua-access-webservice-config.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="mockListener" class="com.beyondbit.sao.client.listener.MockXmlListener"/>
+	
+	
+	<!-- ******* 访问接口服务 *********************************************************************************** -->
+	
+	<bean id="buaAccessClientCommonService" class="com.beyondbit.sao.client.service.bua.access.impl.CommonServiceImpl">
+		<property name="client">
+			<ref local="buaAccessClient"/>
+		</property>
+	</bean>
+	
+	<bean id="buaAccessClientAuthorizationService" class="com.beyondbit.sao.client.service.bua.access.impl.AuthorizationServiceImpl">
+		<property name="client">
+			<ref local="buaAccessClient"/>
+		</property>
+	</bean>
+	
+	<bean id="buaAccessClientUserService" class="com.beyondbit.sao.client.service.bua.access.impl.UserServiceImpl">
+		<property name="client">
+			<ref local="buaAccessClient"/>
+		</property>
+	</bean>
+
+	<bean id="buaAccessClientOrgService" class="com.beyondbit.sao.client.service.bua.access.impl.OrgServiceImpl">
+		<property name="client">
+			<ref local="buaAccessClient"/>
+		</property>
+	</bean>	
+
+	<bean id="buaAccessClientRoleService" class="com.beyondbit.sao.client.service.bua.access.impl.RoleServiceImpl">
+		<property name="client">
+			<ref local="buaAccessClient"/>
+		</property>
+	</bean>	
+	
+	<bean id="buaAccessClientDicService" class="com.beyondbit.sao.client.service.bua.access.impl.DicServiceImpl">
+		<property name="client">
+			<ref local="buaAccessClient"/>
+		</property>
+	</bean>						
+
+	<bean id="buaAccessClient" class="com.beyondbit.sao.client.BuaAccessClient">
+		<constructor-arg>
+			<ref local="buaAccessClientConfig"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="buaAccessClientConfig" class="com.beyondbit.sao.client.Config">
+		<property name="applicationCode">
+			<value>${client.head.app.code}</value>
+		</property>
+		<property name="applicationPassword">
+			<value>${client.head.app.password}</value>
+		</property>
+		<property name="userUid">
+			<value>${client.head.user.uid}</value>
+		</property>
+		<property name="userPassword">
+			<value>${client.head.user.password}</value>
+		</property>
+		<property name="encoding">
+			<value>${client.encoding}</value>
+		</property>
+		
+		<property name="listener">
+			<ref local="mockListener"/>
+		</property>
+		
+		<property name="cache">
+			<ref local="ehCache"/>
+		</property>	
+		
+		<property name="handler">
+			<ref local="buaAccessWSHandler"/>
+		</property>			
+	</bean>
+	
+	<bean id="buaAccessWSHandler" class="com.beyondbit.sao.client.protocol.ws.WebServiceHandler">
+		<property name="config">
+			<props>
+			    <prop key="ws.url">${ws.url}</prop>
+                <prop key="ws.targetnamespace">${ws.targetnamespace}</prop>
+				<prop key="ws.method">${ws.method}</prop>
+				<prop key="ws.parameter">${ws.parameter}</prop>
+				<prop key="ws.usesoapaction">${ws.usesoapaction}</prop>
+                <prop key="ws.soapactionuri">${ws.soapactionuri}</prop>
+				<prop key="ws.auth">${ws.auth}</prop>
+				<prop key="ws.auth.principal">${ws.auth.principal}</prop>
+				<prop key="ws.auth.credentials">${ws.auth.credentials}</prop>
+			</props>
+        </property>
+	</bean>
+	
+	<bean id="ehCache" class="com.beyondbit.sao.client.cache.EhCache"/>
+	
+	
+	<!-- ******* 管理接口服务 *********************************************************************************** -->
+
+	<bean id="buaManageClientCommonService" class="com.beyondbit.sao.client.service.bua.manage.impl.CommonServiceImpl">
+		<property name="client">
+			<ref local="buaManageClient"/>
+		</property>
+	</bean>
+	
+	<bean id="buaManageClientUserService" class="com.beyondbit.sao.client.service.bua.manage.impl.UserServiceImpl">
+		<property name="client">
+			<ref local="buaManageClient"/>
+		</property>
+	</bean>
+
+	<bean id="buaManageClientOrgService" class="com.beyondbit.sao.client.service.bua.manage.impl.OrgServiceImpl">
+		<property name="client">
+			<ref local="buaManageClient"/>
+		</property>
+	</bean>	
+
+	<bean id="buaManageClientRoleService" class="com.beyondbit.sao.client.service.bua.manage.impl.RoleServiceImpl">
+		<property name="client">
+			<ref local="buaManageClient"/>
+		</property>
+	</bean>	
+	
+	<bean id="buaManageClientPrivilegeService" class="com.beyondbit.sao.client.service.bua.manage.impl.PrivilegeServiceImpl">
+		<property name="client">
+			<ref local="buaManageClient"/>
+		</property>
+	</bean>	
+
+	<bean id="buaManageClient" class="com.beyondbit.sao.client.BuaManageClient">
+		<constructor-arg>
+			<ref local="buaManageClientConfig"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="buaManageClientConfig" class="com.beyondbit.sao.client.Config">
+		<property name="applicationCode">
+			<value>${client.head.app.code}</value>
+		</property>
+		<property name="applicationPassword">
+			<value>${client.head.app.password}</value>
+		</property>
+		<property name="userUid">
+			<value>${client.head.user.uid}</value>
+		</property>
+		<property name="userPassword">
+			<value>${client.head.user.password}</value>
+		</property>
+		<property name="encoding">
+			<value>${client.encoding}</value>
+		</property>
+		
+		<property name="listener">
+			<ref local="mockListener"/>
+		</property>
+		
+		<property name="handler">
+			<ref local="buaManageWSHandler"/>
+		</property>			
+	</bean>
+	
+	<bean id="buaManageWSHandler" lazy-init="true" class="com.beyondbit.sao.client.protocol.ws.WebServiceHandler">
+	</bean>
+	
+	
+	<!-- ******* 日志接口服务 *********************************************************************************** -->
+	
+	<bean id="logService" class="com.beyondbit.sao.client.service.log.impl.LogServiceImpl">
+		<property name="client">
+			<ref local="logClient"/>
+		</property>
+	</bean>	
+	
+	<bean id="logClient" class="com.beyondbit.sao.client.LogClient">
+		<constructor-arg>
+			<ref local="logClientConfig"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="logClientConfig" class="com.beyondbit.sao.client.Config">
+		<property name="applicationCode">
+			<value>${client.head.app.code}</value>
+		</property>
+		<property name="applicationPassword">
+			<value>${client.head.app.password}</value>
+		</property>
+		<property name="userUid">
+			<value>${client.head.user.uid}</value>
+		</property>
+		<property name="userPassword">
+			<value>${client.head.user.password}</value>
+		</property>
+		<property name="encoding">
+			<value>${client.encoding}</value>
+		</property>
+		
+		<property name="listener">
+			<ref local="mockListener"/>
+		</property>
+		
+		<property name="handler">
+			<ref local="logHandler"/>
+		</property>			
+	</bean>
+	
+	<bean id="logHandler" lazy-init="true" class="com.beyondbit.sao.client.protocol.ws.WebServiceHandler"/>
+		
+	
+	<!-- ******* 消息接口服务 *********************************************************************************** -->
+	
+	<bean id="msgService" class="com.beyondbit.sao.client.service.msg.impl.MsgServiceImpl">
+		<property name="client">
+			<ref local="msgClient"/>
+		</property>
+	</bean>	
+		
+	<bean id="msgClient" class="com.beyondbit.sao.client.MsgClient">
+		<constructor-arg>
+			<ref local="msgClientConfig"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="msgClientConfig" class="com.beyondbit.sao.client.Config">
+		<property name="applicationCode">
+			<value>${client.head.app.code}</value>
+		</property>
+		<property name="applicationPassword">
+			<value>${client.head.app.password}</value>
+		</property>
+		<property name="userUid">
+			<value>${client.head.user.uid}</value>
+		</property>
+		<property name="userPassword">
+			<value>${client.head.user.password}</value>
+		</property>
+		<property name="encoding">
+			<value>${client.encoding}</value>
+		</property>
+		
+		<property name="listener">
+			<ref local="mockListener"/>
+		</property>
+		
+		<property name="handler">
+			<ref local="msgHandler"/>
+		</property>			
+	</bean>
+	
+	<bean id="msgHandler" lazy-init="true" class="com.beyondbit.sao.client.protocol.ws.WebServiceHandler"/>
+	
+</beans>	

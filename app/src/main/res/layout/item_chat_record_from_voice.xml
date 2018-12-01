@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.cloudartisan.crius.component.FromMessageVoiceView android:orientation="vertical" android:id="@id/from_message_view" android:paddingLeft="5.0dip" android:paddingRight="30.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                                                     xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/item_chat_record_datetime" />
+    <cn.cloudartisan.crius.component.WebImageView
+        android:id="@id/others_headImageView" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/icon_head_default" android:layout_below="@id/datetime" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/theme_text_color" android:gravity="center" android:id="@id/fromName" android:layout_width="40.0dip" android:layout_height="wrap_content" android:layout_below="@id/others_headImageView" />
+    <RelativeLayout android:id="@id/message_content" android:background="@drawable/chating_background_from" android:paddingLeft="10.0dip" android:paddingTop="5.0dip" android:paddingRight="5.0dip" android:paddingBottom="5.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="20.0dip" android:layout_toRightOf="@id/others_headImageView" android:layout_below="@id/datetime">
+        <cn.cloudartisan.crius.component.ChatVoiceView
+            android:gravity="center|left" android:id="@id/others_voice_layout" android:padding="5.0dip" android:layout_width="@dimen/chat_voice_width" android:layout_height="wrap_content" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</cn.cloudartisan.crius.component.FromMessageVoiceView>

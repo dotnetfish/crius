@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@color/window_bg" android:scrollbars="none" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:background="@drawable/item_background_top" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@id/icon" android:layout_width="80.0dip" android:layout_height="80.0dip" android:layout_centerVertical="true" />
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="80.0dip" android:layout_marginLeft="20.0dip" android:layout_toRightOf="@id/icon" android:layout_centerVertical="true">
+                <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/theme_green" android:gravity="center_vertical" android:id="@id/groupId" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                <TextView android:textSize="20.0sp" android:textStyle="bold" android:gravity="center_vertical" android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout android:background="@drawable/item_background_middle" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_group_founder" android:layout_centerVertical="true" />
+            <TextView android:textStyle="bold" android:textColor="@color/black" android:id="@id/founderAccount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@id/founderIcon" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/lookMemberBar" android:background="@drawable/item_background_middle" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textColor="@color/black" android:id="@id/memberLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip" android:text="@string/label_group_member" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <HorizontalScrollView android:gravity="center_vertical" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_marginTop="10.0dip">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/memberScrollView" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </HorizontalScrollView>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:background="@drawable/item_background_bottom" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/black" android:gravity="left" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/label_group_summary" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/night_black" android:gravity="left" android:id="@id/summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/ignoreMessageBar" android:background="@drawable/item_background_single" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:onClick="onClick">
+            <TextView android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_group_ignore" android:layout_centerVertical="true" />
+            <CheckBox android:id="@id/ignoreMessageCheckbox" android:background="@drawable/switch_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:button="@null" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <Button android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/joinButton" android:background="@drawable/common_button_green" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginLeft="20.0dip" android:layout_marginTop="50.0dip" android:layout_marginRight="20.0dip" android:text="@string/label_group_apply" />
+    </LinearLayout>
+</ScrollView>

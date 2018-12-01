@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical"
+              android:orientation="vertical"
+              android:background="@drawable/dialog_background"
+              android:paddingBottom="5.0dip"
+              android:layout_width="300.0dip"
+              android:layout_height="wrap_content"
+              android:id="@+id/opt_dialog"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/theme_green" android:ellipsize="end" android:gravity="center" android:id="@id/dialogTitle" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/common_operation" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/black" android:gravity="center_vertical" android:id="@id/copy" android:background="@drawable/item_background_top" android:paddingLeft="10.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/common_copy" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/black" android:gravity="center_vertical" android:id="@id/delete" android:background="@drawable/item_color_background" android:paddingLeft="10.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/common_delete" />
+</LinearLayout>

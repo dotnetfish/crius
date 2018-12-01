@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/window_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/customInputPanelView" layout="@layout/custom_input_panel" />
+    <cn.cloudartisan.crius.component.ChatListView
+        android:id="@id/chat_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="#00000000" android:transcriptMode="alwaysScroll" android:cacheColorHint="@null" android:divider="#00000000" android:dividerHeight="10.0dip" android:layout_above="@id/customInputPanelView" />
+    <include android:id="@id/recordingPanelView" layout="@layout/layout_chat_recording_panel" />
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/actionbar_more_icon" android:title="" android:showAsAction="ifRoom">
+        <menu>
+            <item android:icon="@drawable/ofm_paste_icon" android:id="@id/menu_copy_url" android:title="@string/label_copy_url" />
+            <item android:icon="@drawable/ofm_browser_icon" android:id="@id/menu_open_browser" android:title="@string/label_open_browser" />
+            <item android:icon="@drawable/ofm_font_icon" android:id="@id/menu_text_size" android:title="@string/label_changetext_size" />
+            <item android:icon="@drawable/ofm_moment_icon" android:id="@id/menu_share_moment" android:title="@string/label_share_moment" />
+        </menu>
+    </item>
+</menu>

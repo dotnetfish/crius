@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+              android:background="@color/window_bg" android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:id="@+id/dash_board"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/networkWarnPanel" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="50.0dip" layout="@layout/layout_network_disable" />
+
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="123dip">
+
+        <cn.cloudartisan.crius.component.ViewFlow
+                android:duplicateParentState="true" android:id="@+id/viewflow"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+        >
+
+        </cn.cloudartisan.crius.component.ViewFlow>
+        <cn.cloudartisan.crius.component.CircleFlowIndicator
+                android:padding="10dip"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/viewflowindic"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignBottom="@id/viewflow"
+
+                app:inactiveType="fill"
+                app:activeColor="@color/actionbar_selector_color"
+                app:centered="true"
+                app:radius="4dip"
+                app:fadeOut="0" />
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+    <RelativeLayout android:orientation="vertical"
+                    android:background="@color/window_bg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    xmlns:android="http://schemas.android.com/apk/res/android">
+    <cn.cloudartisan.crius.component.PushLoadMoreListView
+            android:id="@id/circleListView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:listSelector="#00000000"
+            android:cacheColorHint="#00000000"
+
+            android:divider="#00000000" android:dividerHeight="0.0dip" />
+</RelativeLayout>
+   </LinearLayout>

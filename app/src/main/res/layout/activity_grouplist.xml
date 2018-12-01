@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@color/white" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="60.0dip">
+        <TextView android:textColor="@color/bar_text_selector" android:gravity="center" android:id="@id/bar_my_created" android:background="@drawable/bar_bg_left_selector" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/label_my_created" android:layout_weight="1.0" />
+        <TextView android:textColor="@color/bar_text_selector" android:gravity="center" android:id="@id/bar_my_join" android:background="@drawable/bar_bg_right_selector" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/label_my_join" android:layout_weight="1.0" />
+    </LinearLayout>
+    <cn.cloudartisan.crius.component.GroupListPanel
+        android:id="@id/groupList" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="@null" />
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="bottom|center" android:orientation="vertical" android:background="@drawable/nearby_lbs_banner_pull_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ProgressBar android:id="@id/nerby_progressBar" android:layout_width="100.0dip" android:layout_height="100.0dip" android:indeterminateDrawable="@drawable/nearby_header_loading" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:background="@drawable/nearby_lbs_banner_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@drawable/simple_list_background"
+              android:layout_marginLeft="10.0dip"
+              android:layout_marginTop="10.0dip"
+    android:layout_margin="@dimen/LargePadding"
+
+              android:layout_height="match_parent">
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="match_parent" android:padding="@dimen/LargePadding">
+        <TextView android:textStyle="bold" android:textColor="#ff324d82"
+                  android:shadowColor="@color/black"
+                  android:shadowDx="0.0"
+                  android:shadowDy="0.5"
+                  android:shadowRadius="0.5"
+                  android:layout_width="wrap_content" android:id="@+id/news_title"
+                  android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout  android:layout_width="fill_parent" android:layout_height="match_parent">
+      <cn.cloudartisan.crius.component.WebImageView
+              android:layout_width="100dip"
+              android:layout_height="100dip"
+              android:padding="@dimen/padding_5dip"
+              android:id="@+id/news_thumbs"
+      />
+        <TextView  android:ellipsize="end" android:layout_width="wrap_content" android:id="@+id/news_body" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout android:padding="@dimen/LargePadding" android:layout_width="fill_parent" android:layout_height="match_parent">
+        <TextView android:textSize="14.0sp" android:textColor="@color/theme_night_text_color" android:layout_width="wrap_content" android:id="@+id/news_source" android:layout_height="wrap_content"/>
+        <TextView android:textSize="14.0sp" android:textColor="@color/theme_night_text_color" android:layout_width="wrap_content" android:id="@+id/news_date" android:layout_height="wrap_content"/>
+        <TextView android:textSize="14.0sp" android:textColor="@color/theme_night_text_color" android:layout_width="wrap_content" android:id="@+id/news_comment_count" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</LinearLayout>

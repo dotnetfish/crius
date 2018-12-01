@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/tab_icon" android:tag="TAB_ICON" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_marginTop="4.0dip" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/badge_new_dot" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-8.0dip" android:layout_marginTop="2.0dip" android:src="@drawable/dot_nor_red" android:layout_toRightOf="@id/tab_icon" />
+    <TextView android:id="@id/badge_unread_count" android:visibility="gone" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_marginLeft="-10.0dip" android:layout_marginTop="2.0dip" android:layout_toRightOf="@id/tab_icon" style="@style/badgeTextViewStyle" />
+    <TextView android:textSize="12.0sp"
+              android:textColor="@color/tab_text_selector"
+              android:tag="TAB_NAME"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="-3.0dip"
+              android:layout_below="@id/tab_icon"
+              android:layout_centerHorizontal="true" />
+</RelativeLayout>

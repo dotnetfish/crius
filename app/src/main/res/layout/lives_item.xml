@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@drawable/simple_list_background"
+              android:layout_marginLeft="10.0dip"
+              android:layout_marginTop="10.0dip"
+    android:layout_margin="@dimen/LargePadding"
+
+              android:layout_height="match_parent">
+    <TextView android:textSize="14.0sp"  android:ellipsize="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_marginTop="6.0dip"
+        android:text="今日賽事"
+        android:maxEms="7" android:singleLine="true" />
+    <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@+id/tlogo1" android:layout_width="32.0dip" android:layout_height="32.0dip" />
+            <TextView android:textSize="14.0sp"  android:ellipsize="end"
+                android:id="@+id/team1" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="6.0dip"
+                android:text="得累斯得累斯顿得累斯顿得累斯顿顿"
+                android:maxEms="7" android:singleLine="true" />
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="16.0sp" android:textColor="#ff34a853" android:gravity="center_horizontal" android:id="@+id/score" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+            <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="6.0dip">
+                  <TextView android:textSize="15.0sp"  android:id="@+id/time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="球半/两球半" />
+               </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@+id/tlogo_2" android:layout_width="32.0dip" android:layout_height="32.0dip" />
+            <TextView android:textSize="14.0sp"  android:ellipsize="end" android:id="@+id/team2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:text="得累斯顿" android:maxEms="7" android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

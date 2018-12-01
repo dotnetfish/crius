@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.cloudartisan.crius.component.ChatFileView android:layout_width="@dimen/chat_fileview_width" android:layout_height="wrap_content"
+                                             xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/fileIcon" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_centerVertical="true" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="50.0dip" android:layout_marginLeft="10.0dip" android:layout_toRightOf="@id/fileIcon" android:layout_centerVertical="true">
+        <TextView android:textColor="@color/black" android:ellipsize="end" android:gravity="top" android:id="@id/fileName" android:layout_width="wrap_content" android:layout_height="30.0dip" android:singleLine="true" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/night_black" android:gravity="bottom" android:id="@id/fileSize" android:layout_width="wrap_content" android:layout_height="20.0dip" />
+    </LinearLayout>
+    <ProgressBar android:layout_gravity="center_vertical" android:id="@id/fileProgressBar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="5.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:max="100" android:progressDrawable="@drawable/file_download_progress" android:layout_below="@id/fileIcon" style="?android:attr/progressBarStyleHorizontal" />
+</cn.cloudartisan.crius.component.ChatFileView>

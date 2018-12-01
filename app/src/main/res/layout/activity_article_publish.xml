@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:padding="10.0dip" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <EditText android:textColor="@color/black" android:gravity="center|left|top" android:id="@id/content" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="150.0dip" android:maxLength="1000" android:lineSpacingExtra="3.0dip" android:inputType="textMultiLine" />
+        <cn.cloudartisan.crius.component.CustomGridView
+            android:id="@+id/imageGridView" android:layout_width="fill_parent" android:layout_height="@dimen/add_photo_gridview_height" android:layout_marginTop="20.0dip" android:listSelector="#00000000" android:cacheColorHint="#00000000" android:horizontalSpacing="10.0dip" android:verticalSpacing="10.0dip" android:numColumns="5" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/linkPanel" android:background="@color/window_bg" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
+            <ImageView android:id="@+id/linkImage" android:layout_width="50.0dip" android:layout_height="50.0dip" android:src="@drawable/ic_link_bg" android:scaleType="centerCrop" />
+            <TextView android:textColor="@color/text_chat_color" android:gravity="center_vertical" android:id="@id/linkTitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:maxLines="2" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/darkgray" android:gravity="center" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dip" android:text="@string/hint_delete_image" />
+</LinearLayout>

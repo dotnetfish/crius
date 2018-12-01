@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/rootView" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/button_group" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:layout_alignParentBottom="true">
+        <Button android:id="@id/login_btn" android:layout_width="123.0dip" android:layout_marginLeft="21.0dip" android:text="@string/label_login" android:layout_alignParentLeft="true" style="@style/MMBigGreenButton" />
+        <Button android:id="@id/register_btn" android:layout_width="123.0dip" android:layout_marginRight="20.0dip" android:text="@string/label_register" android:layout_alignParentRight="true" style="@style/MMBigGreyButton" />
+    </RelativeLayout>
+</RelativeLayout>

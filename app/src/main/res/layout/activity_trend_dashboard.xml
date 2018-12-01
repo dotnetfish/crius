@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+              android:background="@color/window_bg" android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:id="@+id/dash_board"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/networkWarnPanel" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="50.0dip" layout="@layout/layout_network_disable" />
+
+    <LinearLayout android:gravity="center"
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="130dip">
+      <!-- <cn.cloudartisan.crius.component.BannerImageView
+            android:tag="@drawable/nearby_lbs_banner_bg" android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />-->
+        <GridView android:id="@+id/fun_grid"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:numColumns="3"
+                  android:verticalSpacing="0.5dp"
+                  android:horizontalSpacing="0.5dp"
+                  android:gravity="center"
+                  android:background="@drawable/nearby_lbs_banner_bg"
+        >
+
+        </GridView>
+
+    </LinearLayout>
+-
+<GridView android:id="@+id/gv_icon" android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:verticalSpacing="0.5dp"
+     android:horizontalSpacing="0.5dp"
+         android:gravity="center"
+          android:background="@color/grey_btn_stroke_color_pressed"
+    >
+
+</GridView>
+   </LinearLayout>

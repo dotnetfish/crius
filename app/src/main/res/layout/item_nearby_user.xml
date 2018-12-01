@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/simple_list_background" android:paddingLeft="8.0dip" android:paddingTop="8.0dip" android:paddingRight="5.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <cn.cloudartisan.crius.component.WebImageView
+        android:id="@id/icon" android:layout_width="54.0dip" android:layout_height="54.0dip" android:layout_centerVertical="true" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_toRightOf="@id/icon">
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="27.0dip">
+            <TextView android:textStyle="bold" android:textColor="@color/black" android:gravity="left" android:id="@id/username" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ImageView android:id="@id/gender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_lady" android:layout_toRightOf="@id/username" />
+            <TextView android:textStyle="bold" android:textColor="#ff2f4e62" android:gravity="right" android:id="@id/distance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/text_grey" android:gravity="bottom|center|right" android:id="@id/location" android:layout_width="fill_parent" android:layout_height="27.0dip" android:layout_marginRight="10.0dip" />
+    </LinearLayout>
+</RelativeLayout>

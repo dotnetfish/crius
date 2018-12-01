@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="chat_thumbnail_min_side">60.0dip</dimen>
+    <dimen name="add_photo_min_side">50.0dip</dimen>
+    <dimen name="add_photo_gridview_height">120.0dip</dimen>
+    <dimen name="circle_photo_side">75.0dip</dimen>
+    <dimen name="circle_icon_side">45.0dip</dimen>
+    <dimen name="circle_home_header_heigh">40.0dip</dimen>
+    <dimen name="circle_single_photo_side">250.0dip</dimen>
+    <dimen name="chat_fileview_width">160.0dip</dimen>
+    <dimen name="chat_mapview_heigh">90.0dip</dimen>
+    <dimen name="chat_mapview_width">180.0dip</dimen>
+    <dimen name="circle_icon_small_side">35.0dip</dimen>
+    <dimen name="file_icon_size">80.0dip</dimen>
+</resources>

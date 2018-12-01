@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="50.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/footer_progressBar" android:layout_width="wrap_content" android:layout_height="45.0dip" android:src="@drawable/loading_coffee" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="12.0sp" android:textColor="#ff2f4e62" android:gravity="center" android:id="@id/footer_hint" android:background="@null" android:layout_width="wrap_content" android:layout_height="45.0dip" android:text="@string/tip_data_beall" android:shadowColor="#44ffffff" android:shadowDy="1.0" android:shadowRadius="1.0" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+</RelativeLayout>

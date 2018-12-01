@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <cn.cloudartisan.crius.component.BannerImageView
+        android:tag="@drawable/circle_banner_normal" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <View android:background="@drawable/background_bottom_line" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-50.0dip">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/usericon_bg" android:padding="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:layout_alignParentRight="true">
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@id/icon" android:layout_width="80.0dip" android:layout_height="80.0dip" android:src="@drawable/background_mask_image" android:scaleType="centerCrop" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center|left" android:id="@id/sns_message_remind" android:background="@drawable/message_remind" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@id/sns_notify_firstimg" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_marginLeft="3.0dip" />
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@id/sns_notify_secondimg" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_marginLeft="3.0dip" />
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@id/sns_notify_lastimg" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_marginLeft="3.0dip" />
+            <ImageView android:layout_gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip" android:src="@drawable/table_arrow" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

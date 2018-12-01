@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.cloudartisan.crius.component.PubFromMessageLinkPanelView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                                                            xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/item_chat_record_datetime" />
+    <LinearLayout android:orientation="vertical" android:id="@id/linksPanelView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="8.0dip" android:layout_below="@id/datetime" />
+</cn.cloudartisan.crius.component.PubFromMessageLinkPanelView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <cn.cloudartisan.crius.component.FriendListPanel
+        android:id="@id/friendList" android:background="@color/window_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <TextView android:textSize="40.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/dialog" android:background="@drawable/sort_selected_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <cn.cloudartisan.crius.component.SortSideBar
+        android:layout_gravity="center|right" android:id="@id/sidrbar" android:layout_width="20.0dip" android:layout_height="fill_parent" />
+</FrameLayout>

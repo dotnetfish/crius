@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="#ff1d1d1d" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true">
+        <ImageView android:id="@id/shakeBg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/shakehideimg_man" android:layout_centerInParent="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <RelativeLayout android:id="@id/shakeImgUp" android:layout_width="fill_parent" android:layout_height="200.0dip">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/shake_logo_up" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+                <ImageView android:id="@id/shakeTopLine" android:background="@drawable/shake_top_line" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/shakeImgDown" android:layout_width="fill_parent" android:layout_height="200.0dip">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/shake_logo_down" android:layout_centerHorizontal="true" />
+                <ImageView android:id="@id/shakeBottomLine" android:background="@drawable/shake_bottom_line" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <RelativeLayout android:id="@id/progress_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+                    <ProgressBar android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginLeft="10.0dip" android:layout_centerVertical="true" style="@style/smallCustomProgressBar" />
+                    <TextView android:textSize="14.0sp" android:textColor="@color/text_grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip"
+                              android:text="@string/label_shake_loading" android:layout_centerVertical="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/userpanel" android:background="@drawable/aso" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="20.0dip" android:layout_alignParentBottom="true">
+        <cn.cloudartisan.crius.component.WebImageView
+            android:id="@id/icon" android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_centerVertical="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_toRightOf="@id/icon">
+            <TextView android:textStyle="bold"
+                      android:textColor="@color/text_grey" android:gravity="center_vertical"
+                      android:id="@+id/shake_result"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_centerVertical="true" />
+
+        <!--    <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="30.0dip">
+                <TextView android:textStyle="bold" android:textColor="@color/text_grey" android:gravity="center_vertical" android:id="@id/username" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/gender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_lady" android:layout_toRightOf="@id/username" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <TextView android:textSize="14.0sp"
+                      android:textColor="@color/text_grey"
+                      android:gravity="center_vertical" android:id="@id/location"
+                      android:layout_width="wrap_content"
+                      android:layout_height="30.0dip" />-->
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

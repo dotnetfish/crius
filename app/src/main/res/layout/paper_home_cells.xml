@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/friendPanel" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <cn.cloudartisan.crius.component.FriendListPanel
+            android:id="@id/friendList" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="@null" />
+        <TextView android:textColor="@color/night_black" android:id="@id/hasnoFriendTips" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tip_hasno_friend" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/groupPanel" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <cn.cloudartisan.crius.component.GroupListPanel
+            android:id="@id/groupList" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="@null" />
+    </LinearLayout>
+</RelativeLayout>

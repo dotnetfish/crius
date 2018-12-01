@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/actionbar_more_icon" android:showAsAction="ifRoom">
+        <menu>
+            <item android:icon="@drawable/ofm_delete_icon" android:id="@id/bar_menu_delete" android:title="@string/common_delete" />
+            <item android:icon="@drawable/ofm_groupmessage_icon" android:id="@id/bar_menu_invite" android:title="@string/label_group_invite" />
+        </menu>
+    </item>
+</menu>

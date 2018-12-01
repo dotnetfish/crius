@@ -1,0 +1,127 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.cloudartisan.crius">
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+   <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>-->
+    <uses-permission android:name="com.farsunset.permission.CIM_MESSAGE"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.hardware.sensor.accelerometer"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <supports-screens android:compatibleWidthLimitDp="480" android:requiresSmallestWidthDp="320"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+          android:name="cn.cloudartisan.crius.app.LvxinApplication"
+        android:persistent="true" android:theme="@style/MMThemeHolo">
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="9Qbzlq0cye5gmtseuihxCteW"/>
+        <activity android:name="cn.cloudartisan.crius.ui.WelcomeActivity" android:theme="@style/Theme.AppStartLoad">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTask"
+            android:name="cn.cloudartisan.crius.component.BaseWebActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTask" android:name="cn.cloudartisan.crius.ui.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.TrendCenterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTask" android:name="cn.cloudartisan.crius.ui.LoginAlertActivity" android:screenOrientation="portrait" android:theme="@style/custom_dialog"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.setting.SettingCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.setting.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.setting.ProfileEditActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.setting.ModifyPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.setting.NotifySettingActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.setting.ModifyMottoActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.setting.ModifyNameActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.setting.FeedbackActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.NearbyUserListActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.SNSCircleListActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.ArticlePublishActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.CircleMessageListActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.ArticleDetailedActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.MyCircleHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.UCircleHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.DriftBottleActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.BottleListActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.BottleChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.SNSShakeActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.ShakeRecordListActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.trend.ShakeSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTask" android:name="cn.cloudartisan.crius.ui.chat.PubAccountChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTask" android:name="cn.cloudartisan.crius.ui.chat.FriendChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTask" android:name="cn.cloudartisan.crius.ui.chat.GroupChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.chat.SystemMessageActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.chat.FileChoiceActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.chat.FileViewerActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.chat.MapLocationActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.chat.MapViewActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.chat.MMWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.ContactsVerifyActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.AddCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.AllyRequestActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.RequestHandleActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.CreateGroupActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.GroupDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.UserDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.GroupMemberListActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.InviteGroupMemberActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.GroupListActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.PubAccountDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.PubAccountListActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.util.ImageChoiceActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.karics.library.zxing.android.CaptureActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:exported="false" android:name="cn.cloudartisan.crius.service.CycleLocationService"/>
+        <service android:exported="false" android:name="cn.cloudartisan.crius.service.MessageNotifyService"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <service android:name="cn.cloudartisan.crius.client.android.CIMPushService"
+            android:process=":cimpush"/>
+        <receiver android:exported="false"
+            android:name="cn.cloudartisan.crius.receiver.CustomCIMMessageReceiver"
+            android:permission="com.superstudio.permission.CIM_MESSAGE">
+            <intent-filter android:priority="0x7fffffff">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.farsunset.cim.MESSAGE_RECEIVED"/>
+                <action android:name="com.farsunset.cim.SENT_FAILED"/>
+                <action android:name="com.farsunset.cim.SENT_SUCCESS"/>
+                <action android:name="com.farsunset.cim.CONNECTION_RECOVERY"/>
+                <action android:name="com.farsunset.cim.CONNECTION_CLOSED"/>
+                <action android:name="com.farsunset.cim.CONNECTION_FAILED"/>
+                <action android:name="com.farsunset.cim.CONNECTION_SUCCESS"/>
+                <action android:name="com.farsunset.cim.REPLY_RECEIVED"/>
+                <action android:name="com.farsunset.cim.CONNECTION_STATUS"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
+

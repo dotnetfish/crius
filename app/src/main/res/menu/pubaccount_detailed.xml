@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/actionbar_more_icon" android:title="" android:showAsAction="ifRoom">
+        <menu>
+            <item android:icon="@drawable/icon_actionbar_close" android:id="@id/bar_menu_unsubscribe" android:title="@string/label_unsubscribe" />
+        </menu>
+    </item>
+</menu>

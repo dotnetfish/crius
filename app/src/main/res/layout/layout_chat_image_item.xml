@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.cloudartisan.crius.component.ChatWebImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                 xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@color/window_bg" android:scaleType="centerInside" />
+    <ProgressBar android:id="@id/loadImagePprogressbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" style="@style/mediumCustomProgressBar" />
+    <TextView android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/progressText" android:background="@color/haf_transparent" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+</cn.cloudartisan.crius.component.ChatWebImageView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.cloudartisan.crius.component.PubFromMessageLinkView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                                                       xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/item_chat_record_datetime" />
+    <LinearLayout android:orientation="vertical" android:id="@id/linkPanelView" android:background="@drawable/item_background_single" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_below="@id/datetime">
+        <TextView android:textSize="18.0sp" android:textColor="@color/black" android:orientation="vertical" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        <cn.cloudartisan.crius.component.WebImageView
+            android:id="@id/banner" android:layout_width="fill_parent" android:layout_height="150.0dip" android:layout_marginTop="15.0dip" android:src="@color/window_bg" android:scaleType="centerCrop" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/text_grey" android:ellipsize="end" android:orientation="vertical" android:id="@id/descrpiton" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:maxLines="6" android:lineSpacingExtra="5.0dip" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/black" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="50.0dip" android:text="@string/label_read_all_text" />
+    </LinearLayout>
+</cn.cloudartisan.crius.component.PubFromMessageLinkView>

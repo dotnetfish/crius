@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.cloudartisan.crius.component.SimpleInputPanelView android:orientation="vertical" android:background="@drawable/background_inputpanel" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+                                                     xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:minHeight="40.0dip">
+        <Button android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/sendMessageButton" android:background="@drawable/common_button_green" android:layout_width="45.0dip" android:layout_height="35.0dip" android:text="@string/common_send" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/centerInputBox" android:background="@drawable/input_bottom_line_hover" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:layout_toLeftOf="@id/sendMessageButton" android:layout_centerVertical="true">
+            <EditText android:gravity="bottom" android:id="@id/messageEditText" android:background="@color/transparent" android:padding="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="35.0dip" android:maxLines="3" android:singleLine="false" android:layout_weight="9.0" />
+            <ImageView android:id="@id/chat_emotion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:layout_marginBottom="5.0dip" android:src="@drawable/icon_face_drawable" />
+        </LinearLayout>
+    </RelativeLayout>
+    <include android:id="@id/emoticoPanelView" layout="@layout/emotion_panel" />
+</cn.cloudartisan.crius.component.SimpleInputPanelView>

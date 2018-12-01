@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/radioGroup" android:background="@drawable/item_background_top" android:layout_width="fill_parent" android:layout_height="50.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/panel1" android:background="@drawable/item_color_background" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <CheckBox android:enabled="false" android:id="@id/radioButton1" android:background="@drawable/radio_selector" android:clickable="false" android:layout_width="20.0dip" android:layout_height="20.0dip" android:button="@null" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/text_chat_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="小" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/panel2" android:background="@drawable/item_color_background" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <CheckBox android:enabled="false" android:id="@id/radioButton2" android:background="@drawable/radio_selector" android:clickable="false" android:layout_width="20.0dip" android:layout_height="20.0dip" android:button="@null" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/text_chat_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="标准" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/panel3" android:background="@drawable/item_color_background" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <CheckBox android:enabled="false" android:id="@id/radioButton3" android:background="@drawable/radio_selector" android:clickable="false" android:layout_width="20.0dip" android:layout_height="20.0dip" android:button="@null" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/text_chat_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="大" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/panel4" android:background="@drawable/item_color_background" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <CheckBox android:enabled="false" android:id="@id/radioButton4" android:background="@drawable/radio_selector" android:clickable="false" android:layout_width="20.0dip" android:layout_height="20.0dip" android:button="@null" />
+            <TextView android:textSize="18.0sp" android:textColor="@color/text_chat_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="特大" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

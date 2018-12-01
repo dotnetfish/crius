@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:orientation="horizontal"
+              android:background="@drawable/background_bottom_line"
+              android:layout_width="fill_parent" android:layout_height="wrap_content"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/newFriendItem"
+                    android:background="@drawable/item_color_background" android:padding="8.0dip"
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:layout_margin="1.0px" android:layout_weight="1.0">
+        <ImageView android:id="@id/newFriendIcon" android:background="@drawable/icon_contact_add"
+                   android:layout_width="45.0dip" android:layout_height="45.0dip"
+                   android:layout_centerHorizontal="true"/>
+        <TextView android:textColor="@color/theme_text_color" android:id="@id/label_contacts_new_friend"
+                  android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_marginTop="5.0dip" android:text="@string/label_contacts_new_friend"
+                  android:layout_below="@id/newFriendIcon" android:layout_centerHorizontal="true"/>
+        <TextView android:id="@id/new_msg_count_label" android:layout_toRightOf="@id/label_contacts_new_friend"
+                  style="@style/badgeTextViewStyle"/>
+    </RelativeLayout>
+    <View android:background="@color/list_bg_border" android:layout_width="1.0px" android:layout_height="fill_parent"/>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/groupItem"
+                  android:background="@drawable/item_color_background" android:padding="8.0dip"
+                  android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="1.0px"
+                  android:layout_weight="1.0">
+        <ImageView android:background="@drawable/icon_contact_group" android:layout_width="45.0dip"
+                   android:layout_height="45.0dip" android:layout_centerHorizontal="true"/>
+        <TextView android:textColor="@color/theme_text_color" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:layout_marginTop="5.0dip"
+                  android:text="@string/label_contacts_group_chat"/>
+    </LinearLayout>
+    <View android:background="@color/list_bg_border" android:layout_width="1.0px" android:layout_height="fill_parent"/>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/publicItem"
+                  android:background="@drawable/item_color_background" android:padding="8.0dip"
+                  android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="1.0px"
+                  android:layout_weight="1.0">
+        <ImageView android:background="@drawable/icon_contact_public" android:layout_width="45.0dip"
+                   android:layout_height="45.0dip"/>
+        <TextView android:textColor="@color/theme_text_color" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:layout_marginTop="5.0dip"
+                  android:text="@string/label_contacts_public"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+

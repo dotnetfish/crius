@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/window_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <cn.cloudartisan.crius.component.BannerImageView
+        android:tag="@drawable/beside_personal_page_default_cover" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <View android:background="@drawable/background_bottom_line" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/iconSwicth" android:background="@drawable/item_background_single" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <cn.cloudartisan.crius.component.WebImageView
+            android:id="@id/icon" android:layout_width="50.0dip" android:layout_height="50.0dip" />
+        <LinearLayout android:orientation="vertical" android:paddingLeft="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="16.0sp" android:textColor="@color/theme_text_color" android:gravity="center_vertical" android:id="@id/username" android:layout_width="wrap_content" android:layout_height="25.0dip" android:singleLine="true" android:layout_weight="1.0" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/theme_green" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/account" android:layout_width="wrap_content" android:layout_height="25.0dip" android:singleLine="true" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/item_album" android:background="@drawable/item_background_top" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginTop="10.0dip">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_setting_album" />
+        <TextView android:textColor="@color/theme_text_color" android:gravity="right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/common_album" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/item_setting" android:background="@drawable/item_background_bottom" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_setting_hover" />
+        <TextView android:textColor="@color/theme_text_color" android:gravity="right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/common_setting" />
+    </LinearLayout>
+</LinearLayout>

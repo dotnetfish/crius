@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/actionbar_more_icon" android:showAsAction="ifRoom">
+        <menu>
+            <item android:id="@id/bar_menu_msg_list" android:title="@string/label_circle_message" />
+        </menu>
+    </item>
+</menu>

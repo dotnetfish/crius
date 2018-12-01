@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/actionbar_more_icon" android:showAsAction="ifRoom">
+        <menu>
+            <item android:icon="@drawable/icon_menu_lock" android:id="@id/bar_menu_modify_password" android:title="@string/label_setting_modify_password" />
+        </menu>
+    </item>
+</menu>
