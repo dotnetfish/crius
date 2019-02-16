@@ -64,8 +64,10 @@ public class NewsInfo
         return comments;
     }
 
-    public void setComments(int comments) {
-        this.comments = comments;
+    public void setComments(Integer comments) {
+        if(comments!=null) {
+            this.comments = comments;
+        }
     }
 
     public String getPublishTime() {

@@ -69,4 +69,19 @@
 
     <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
     <color name="viewfinder_mask">#60000000</color>
+    <color  name="global_bg_color"  >#fff5f7fa</color>
+    <color name="color_A">#ff171b1f</color>
+    <color name="color_B">#cc171b1f</color>
+    <color name="color_C">#4c171b1f</color>
+    <color name="color_D">#26171b1f</color>
+    <color name="color_E">#9a171b1f</color>
+    <color name="color_F">#66171b1f</color>
+    <color name="color_G">#66171b1f</color>
+    <color name="color_H">#ff3d98ff</color>
+    <color name="color_K">#ffd44d44</color>
+    <color name="color_L1">#1e171b1f</color>
+    <color name="color_L2">#ffdcdcdd</color>
+    <color name="color_N">#ffffffff</color>
+    <color name="color_O">#9affffff</color>
+    <color name="color_P">#cc79b8ff</color>
 </resources>

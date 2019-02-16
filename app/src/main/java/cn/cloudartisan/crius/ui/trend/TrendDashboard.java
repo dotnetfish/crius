@@ -285,7 +285,7 @@ public class TrendDashboard extends CIMMonitorFragment implements AdapterView.On
     public void onSuccess(Object data, List list, Page page, String p4, String code) {
         JSONObject json = (JSONObject) data;
         hideProgressDialog();
-        if (json.getBoolean("success")) {
+        if (json!=null && json.getBoolean("success")) {
             Adapter<Module> adapter=ServiceAdapterFactory.getModuleAdapter();
             JSONArray header = (JSONArray) json.get("data");
             for (Object obj : header) {

@@ -107,7 +107,7 @@ public class LoginActivity extends BaseActivity implements TextWatcher, HttpAPIR
     }
     
     public int getConentLayout() {
-        return R.layout.activity_login;
+        return R.layout.activity_login_layout;
     }
     
     public int getActionBarTitle() {

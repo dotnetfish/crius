@@ -5,7 +5,9 @@ package cn.cloudartisan.crius.app;
 public class URLConstant {
 
     //public  static  final  String DOMAIN="http://www.cloudartisan.cn";
-    private static  final String URL_TEMPLATE="%s/mvc/generalhandler.ashx?controller=%sController&action=%s";
+  //  private static  final String URL_TEMPLATE="%s/mvc/generalhandler.ashx?controller=%sController&action=%s";
+    private static  final String URL_TEMPLATE="http://cloudartisan.cn:8080/mock/11/v1/%s/%s";
+
     public  static  final  String DOMAIN="http://www.cloudartisan.cn";
     public  static  final  String ADS_GET=String.format(URL_TEMPLATE,DOMAIN,"Live","hots");
     public  static  final  String NEWS_INDEX=String.format(URL_TEMPLATE,DOMAIN,"Live","Lives");;
@@ -17,6 +19,8 @@ public class URLConstant {
     public static final String getUrl(String controller,String action){
         return  String.format(URL_TEMPLATE,DOMAIN,controller,action);
     }
+
+
 
 
 

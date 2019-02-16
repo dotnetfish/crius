@@ -9,4 +9,8 @@ public class ServiceAdapterFactory {
     public static   Adapter getModuleAdapter(){
         return  new CMSModuleAdapter();
     }
+
+    public static  Adapter getProductAdapter(){
+        return  new ProductAdapter();
+    }
 }

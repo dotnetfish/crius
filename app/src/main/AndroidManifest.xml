@@ -93,6 +93,14 @@
         <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.contact.PubAccountListActivity" android:screenOrientation="portrait"/>
         <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name="cn.cloudartisan.crius.ui.util.ImageChoiceActivity" android:screenOrientation="portrait"/>
         <activity android:name=".ui.trend.ProductListActivity" android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.trend.ProductDetailedActivity" android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.product.AddProductActivity"
+            android:alwaysRetainTaskState="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.product.InboundFormActivity" android:alwaysRetainTaskState="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.karics.library.zxing.android.CaptureActivity"
             android:theme="@android:style/Theme.NoTitleBar"

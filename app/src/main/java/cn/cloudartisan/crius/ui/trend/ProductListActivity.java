@@ -7,6 +7,8 @@ package cn.cloudartisan.crius.ui.trend;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -32,6 +34,7 @@ import cn.cloudartisan.crius.bean.ChatItem;
 import cn.cloudartisan.crius.bean.LiveInfo;
 import cn.cloudartisan.crius.bean.NewsInfo;
 import cn.cloudartisan.crius.bean.Page;
+import cn.cloudartisan.crius.bean.ProductInfo;
 import cn.cloudartisan.crius.bean.User;
 import cn.cloudartisan.crius.client.model.Message;
 import cn.cloudartisan.crius.db.BottleDBManager;
@@ -39,14 +42,19 @@ import cn.cloudartisan.crius.db.MessageDBManager;
 import cn.cloudartisan.crius.db.ProductDBManager;
 import cn.cloudartisan.crius.network.HttpAPIRequester;
 import cn.cloudartisan.crius.network.HttpAPIResponser;
+import cn.cloudartisan.crius.service.adapter.Adapter;
+import cn.cloudartisan.crius.service.adapter.ServiceAdapterFactory;
 import cn.cloudartisan.crius.ui.base.CIMMonitorActivity;
+import cn.cloudartisan.crius.ui.contact.AddCenterActivity;
+import cn.cloudartisan.crius.ui.product.AddProductActivity;
+import cn.cloudartisan.crius.ui.product.InboundFormActivity;
 import cn.cloudartisan.crius.widget.CustomDialog;
 
 public class ProductListActivity extends CIMMonitorActivity implements AdapterView.OnItemClickListener,
         CustomDialog.OnOperationListener, AdapterView.OnItemLongClickListener,HttpAPIResponser {
     protected ProductListAdapter adapter;
     CustomDialog customDialog;
-    private List<NewsInfo> dataList = new ArrayList();
+    private List<ProductInfo> dataList = new ArrayList();
     HashMap<String, Object> deleteParams = new HashMap();
     ListView messageListView;
     User self;
@@ -55,16 +63,36 @@ public class ProductListActivity extends CIMMonitorActivity implements AdapterVi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        adapter = new ProductListAdapter(this, dataList);
+        messageListView.setAdapter(adapter);
         requester = new HttpAPIRequester(this);
         requester.execute(new TypeReference<ProductListActivity>() {
                 }.getType(), null,
                 URLConstant.getUrl("product", "list"), "GET");
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent();
+        switch(item.getItemId()) {
+            case R.id.menu_add:
+            {
+                intent.setClass(this, InboundFormActivity.class);
+                startActivity(intent);
+                break;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void initComponents() {
         setDisplayHomeAsUpEnabled(true);
         self = Global.getCurrentUser();
-        messageListView = (ListView) findViewById(R.id.messageListView);
+        messageListView = (ListView) findViewById(R.id.product_list);
         messageListView.setOnItemClickListener(this);
         messageListView.setOnItemLongClickListener(this);
         customDialog = new CustomDialog(this);
@@ -76,10 +104,9 @@ public class ProductListActivity extends CIMMonitorActivity implements AdapterVi
 
     public void onResume() {
         super.onResume();
-        dataList.clear();
-        dataList.addAll(ProductDBManager.getManager().queryProductList());
-        adapter = new ProductListAdapter(this, dataList);
-        messageListView.setAdapter(adapter);
+       // dataList.clear();
+       // dataList.addAll(ProductDBManager.getManager().queryProductList());
+
     }
 
     public void onMessageReceived(Message msg) {
@@ -94,7 +121,7 @@ public class ProductListActivity extends CIMMonitorActivity implements AdapterVi
     }
 
     public int getConentLayout() {
-        return R.layout.activity_circle_message;
+        return R.layout.activity_product_list;
     }
 
     public int getActionBarTitle() {
@@ -102,8 +129,8 @@ public class ProductListActivity extends CIMMonitorActivity implements AdapterVi
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(this, ArticleDetailedActivity.class);
-        intent.putExtra(NewsInfo.class.getSimpleName(), (Serializable) dataList.get(position));
+        Intent intent = new Intent(this, ProductDetailedActivity.class);
+        intent.putExtra(ProductInfo.class.getSimpleName(), (Serializable) dataList.get(position));
         startActivity(intent);
     }
 
@@ -123,9 +150,9 @@ public class ProductListActivity extends CIMMonitorActivity implements AdapterVi
         //HttpAPIRequester.execute(apiParams, URLConstant. MESSAGE_SEND_URL);
         dataList.remove(target);
         adapter.notifyDataSetChanged();
-        Intent intent = new Intent("com.farsunset.cim.DELETE_APPEND");
-        intent.putExtra(ChatItem.NAME, new ChatItem((Bottle) customDialog.getTag()));
-        sendBroadcast(intent);
+        //Intent intent = new Intent("com.farsunset.cim.DELETE_APPEND");
+       // intent.putExtra(ChatItem.NAME, new ChatItem((NewsInfo) customDialog.getTag()));
+        //sendBroadcast(intent);
     }
 
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -139,12 +166,12 @@ public class ProductListActivity extends CIMMonitorActivity implements AdapterVi
         HashMap mp = new HashMap();
         mp.put("channel_id", "2");
         mp.put("category_id", "52");
-        return null;
+        return mp;
     }
 
     @Override
     public void onFailed(Exception p1) {
-
+      showToast(p1.getMessage());
     }
 
     @Override
@@ -170,21 +197,13 @@ public class ProductListActivity extends CIMMonitorActivity implements AdapterVi
     public void loadNews(JSONObject json) {
         JSONArray list = json.getJSONArray("data");
         dataList.clear();
+        Adapter<ProductInfo> productAdapter=ServiceAdapterFactory.getProductAdapter();
         // this.newList.clear();
         for (Object obj : list
                 ) {
-            NewsInfo info = new NewsInfo();
-            JSONObject object = (JSONObject) obj;
-            info.setBrief((String) object.get("brief"));
-            info.setLink((String) object.get("link"));
-            info.setComments(object.getInteger("comments"));
-            info.setImgThumbs(object.getString("img_thumbs"));
-            info.setId(( object.getInteger("id")));
-            info.setPublishTime(((JSONObject) obj).getString("publish_time"));
+            ProductInfo info = productAdapter.fromJson((JSONObject) obj);
 
-            //info.setComments((Integer) object.get("Team2"));
-            //info.setImgThumbs((String)object.get("imgThumbs"));
-            //info.setTime((String) object.get("Time"));
+
             dataList.add(info);
         }
 

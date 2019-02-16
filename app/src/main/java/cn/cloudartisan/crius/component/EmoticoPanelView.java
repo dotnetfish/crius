@@ -47,7 +47,7 @@ public class EmoticoPanelView extends LinearLayout implements AdapterView.OnItem
         emoticoPadding = context.getResources().getDimensionPixelOffset(R.dimen.inputpanel_emotico_padding);
         emoticoViewPagerTagPanel = (LinearLayout)findViewById(R.id.emoticoViewPagerTagPanel);
         viewPager = (ViewPager)findViewById(R.id.emoticoViewPager);
-        for(int var1 = 0; var1 < (CriusApplication.emoticonList.size() - 1) / 28 + 1; ++var1) {
+        /*for(int var1 = 0; var1 < (CriusApplication.emoticonList.size() - 1) / 28 + 1; ++var1) {
             GridView var2 = (GridView)LayoutInflater.from(this.context).inflate(R.layout.emoticon_gridview,null);
             ArrayList var3 = new ArrayList();
             ArrayList var4 = new ArrayList();
@@ -63,7 +63,7 @@ public class EmoticoPanelView extends LinearLayout implements AdapterView.OnItem
             var2.setId(var1);
             var2.setOnItemClickListener(this);
             this.pagerListView.add(var2);
-        }
+        }*/
 
         this.viewPaperAdapter = new ViewPaperAdapter(this.pagerListView);
         this.viewPager.setAdapter(this.viewPaperAdapter);

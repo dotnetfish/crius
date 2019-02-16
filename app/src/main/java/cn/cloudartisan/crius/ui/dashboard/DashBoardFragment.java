@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
@@ -21,6 +22,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.adapter.ImageAdapter;
 import cn.cloudartisan.crius.adapter.LivesListAdapter;
@@ -41,14 +43,14 @@ import cn.cloudartisan.crius.widget.CustomDialog;
 
 import java.util.*;
 
-public class DashBoardFragment extends CIMMonitorFragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener,HttpAPIResponser, PushLoadMoreListView.OnRefreshListener {
+public class DashBoardFragment extends CIMMonitorFragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, HttpAPIResponser, PushLoadMoreListView.OnRefreshListener {
     public static final String ACTION_APPEND_CHAT = "com.farsunset.cim.MESSAGE_APPEND";
     public static final String ACTION_CHANGE_SEND_STATUS = "com.farsunset.cim.SEND_STATUS_CHANGED";
     public static final String ACTION_DELETE_CHAT = "com.farsunset.cim.DELETE_APPEND";
     public static final String ACTION_UPDATE_ITEM = "com.farsunset.cim.UPDATE_ITEM";
     public static String[] ignoredTypes = new String[]{"2", "101", "103", "104", "106", "107"};
-  private static  final  String ADLOADER="adloader";
-    private  static  final  String NEWSLOADER="NEWSLOADER";
+    private static final String ADLOADER = "adloader";
+    private static final String NEWSLOADER = "NEWSLOADER";
     List<Module> modules = new ArrayList<>();
     CustomDialog customDialog;
 
@@ -63,51 +65,52 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
     PushLoadMoreListView newsListView;
     SoundPool soudPool;
 
-   public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        newList=new ArrayList<>();
+        newList = new ArrayList<>();
         self = Global.getCurrentUser();
 
-    this.requester=new HttpAPIRequester(this);
-        this.ads=new ArrayList<>();
-       this.soudPool = new SoundPool(10, 3, 5);
-       this.soudPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-           public void onLoadComplete(SoundPool soundPool, int arg10, int arg11) {
+        this.requester = new HttpAPIRequester(this);
+        this.ads = new ArrayList<>();
+        this.soudPool = new SoundPool(10, 3, 5);
+        this.soudPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            public void onLoadComplete(SoundPool soundPool, int arg10, int arg11) {
 
-                  soundPool.play(R.raw.goals_sound,1, 1, 0, 0, 1);
+                soundPool.play(R.raw.goals_sound, 1, 1, 0, 0, 1);
 
 
-           }
-       });
+            }
+        });
 
-       requester.execute(new TypeReference<DashBoardFragment>() {}.getType(),
+        requester.execute(new TypeReference<DashBoardFragment>() {
+                }.getType(),
                 null,
-               URLConstant.ADS_GET,ADLOADER,"GET");
+                URLConstant.ADS_GET, ADLOADER, "GET");
 
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view=inflater.inflate(R.layout.activity_dashboard, container, false);
-         newsListView=(PushLoadMoreListView)view.findViewById(R.id.circleListView);
+        View view = inflater.inflate(R.layout.activity_dashboard, container, false);
+        newsListView = (PushLoadMoreListView) view.findViewById(R.id.circleListView);
         newsListView.setOnRefreshListener(this);
-        this.newsAdapter=new LivesListAdapter(this.getContext(),this.newList);
-newsListView.setAdapter(this.newsAdapter);
+        this.newsAdapter = new LivesListAdapter(this.getContext(), this.newList);
+        newsListView.setAdapter(this.newsAdapter);
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                LiveInfo info=newsAdapter.getItem(position);
-                Intent intent=new Intent(getContext(), BaseWebActivity.class);
-                intent.putExtra("url",info.getLink());
-                intent.putExtra("title",info.getTeam1()+" vs "+info.getTeam2());
+                LiveInfo info = newsAdapter.getItem(position);
+                Intent intent = new Intent(getContext(), BaseWebActivity.class);
+                intent.putExtra("url", info.getLink());
+                intent.putExtra("title", info.getTeam1() + " vs " + info.getTeam2());
                 startActivity(intent);
             }
         });
-currentPage=-1;
+        currentPage = -1;
         onShowNextPage();
-        viewFlow = (ViewFlow)view. findViewById(R.id.viewflow);
-        imageAdapter=new ImageAdapter(this.getContext(),this.ads);
+        viewFlow = (ViewFlow) view.findViewById(R.id.viewflow);
+        imageAdapter = new ImageAdapter(this.getContext(), this.ads);
         viewFlow.setAdapter(imageAdapter, 5);
         CircleFlowIndicator indic = (CircleFlowIndicator) view.findViewById(R.id.viewflowindic);
         viewFlow.setFlowIndicator(indic);
@@ -115,15 +118,13 @@ currentPage=-1;
     }
 
 
-
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         if (!AppTools.netWorkAvailable(getActivity())) {
-             findViewById(R.id.networkWarnPanel).setVisibility(View.VISIBLE);
+            findViewById(R.id.networkWarnPanel).setVisibility(View.VISIBLE);
         }
 
     }
-
 
 
     public void loadMessage() {
@@ -180,13 +181,13 @@ currentPage=-1;
 
     public void onMessageReceived(cn.cloudartisan.crius.client.model.Message message) {
 
-          Message msg = MessageUtil.transform(message);
-        if(Arrays.asList(ignoredTypes).contains(msg.type)) {
-            if((msg.type.equals("3")) && ("1".equals(ConfigDBManager.getManager().queryValue(message.getSender())))) {
+        Message msg = MessageUtil.transform(message);
+        if (Arrays.asList(ignoredTypes).contains(msg.type)) {
+            if ((msg.type.equals("3")) && ("1".equals(ConfigDBManager.getManager().queryValue(message.getSender())))) {
                 return;
             }
-           // findViewById(R.id.nochatbgimage).setVisibility(View.GONE);
-           // appendMessage(msg);
+            // findViewById(R.id.nochatbgimage).setVisibility(View.GONE);
+            // appendMessage(msg);
             //showNewMsgLable();
 
         }
@@ -233,8 +234,8 @@ currentPage=-1;
 
     @Override
     public Map getRequestParams(String code) {
-        Map map=new HashMap();
-        map.put("channel_id",7);
+        Map map = new HashMap();
+        map.put("channel_id", 2);
 
 
         return map;
@@ -242,7 +243,7 @@ currentPage=-1;
 
     @Override
     public void onFailed(Exception p1) {
-Toast.makeText(getContext(),p1.getMessage(),Toast.LENGTH_LONG);
+        Toast.makeText(getContext(), p1.getMessage(), Toast.LENGTH_LONG);
     }
 
     @Override
@@ -250,66 +251,69 @@ Toast.makeText(getContext(),p1.getMessage(),Toast.LENGTH_LONG);
 
     }
 
-    private  void loadAds(JSONObject json){
-        JSONArray list=json.getJSONArray("data");
+    private void loadAds(JSONObject json) {
+        JSONArray list = json.getJSONArray("data");
         this.ads.clear();
-        for (Object obj: list
-             ) {
-            ADInfo info=new ADInfo();
-            JSONObject object=(JSONObject)obj;
-            info.setImage((String)object.get("Logo1"));
-            info.setLink((String)object.get("Link"));
-            info.setTitle((String)object.get("Title"));
+        for (Object obj : list
+                ) {
+            ADInfo info = new ADInfo();
+            JSONObject object = (JSONObject) obj;
+            info.setImage((String) object.get("Logo1"));
+            info.setLink((String) object.get("Link"));
+            info.setTitle((String) object.get("Title"));
             ads.add(info);
         }
-    this.imageAdapter.notifyDataSetChanged();
+        this.imageAdapter.notifyDataSetChanged();
     }
+
     @Override
     public void onSuccess(Object data, List list, Page page, String code, String url) {
-        JSONObject json=(JSONObject)data;
+        JSONObject json = (JSONObject) data;
         hideProgressDialog();
-        if(json.getBoolean("success")){
-            if(ADLOADER.equals(code)){//广告图片加载
+        if (json!=null && json.getBoolean("success")!=null && json.getBoolean("success")) {
+            if (ADLOADER.equals(code)) {//广告图片加载
                 loadAds(json);
-            }else{
+            } else {
                 loadNews(json);
             }
 
-        }else{
-            String str=json.getString("message");
-           Toast.makeText(this.getContext(),str,Toast.LENGTH_LONG);
+        } else {
+            String str = json.getString("message");
+            Toast.makeText(this.getContext(), str, Toast.LENGTH_LONG);
         }
     }
 
-    public  void loadNews(JSONObject json){
-        JSONArray list=json.getJSONArray("data");
-       // this.newList.clear();
-        for (Object obj: list
+    public void loadNews(JSONObject json) {
+        JSONArray list = json.getJSONArray("data");
+        // this.newList.clear();
+        for (Object obj : list
                 ) {
-            LiveInfo info=new LiveInfo();
-            JSONObject object=(JSONObject)obj;
-            info.setTeam1((String)object.get("Team1"));
-            info.setLink((String)object.get("Link"));
-            info.setTeam2((String)object.get("Team2"));
-            info.setLogo1((String)object.get("Logo1"));
-            info.setLogo2((String)object.get("Logo2"));
+            LiveInfo info = new LiveInfo();
+            JSONObject object = (JSONObject) obj;
+            info.setTeam1((String) object.get("Team1"));
+            info.setLink((String) object.get("Link"));
+            info.setTeam2((String) object.get("Team2"));
+            info.setLogo1((String) object.get("Logo1"));
+            info.setLogo2((String) object.get("Logo2"));
 
-           //info.setComments((Integer) object.get("Team2"));
+            //info.setComments((Integer) object.get("Team2"));
             //info.setImgThumbs((String)object.get("imgThumbs"));
-            info.setTime((String)object.get("Time"));
+            info.setTime((String) object.get("Time"));
             newList.add(info);
         }
         this.newsAdapter.notifyDataSetChanged();
         //newsListView.showMoreComplete((Boolean)json.get("hasMore"));
         newsListView.showMoreComplete(true);
     }
-private  int currentPage=0;
+
+    private int currentPage = 0;
+
     @Override
     public void onShowNextPage() {
         currentPage = (currentPage + 1);
         requester.execute(null, new TypeReference<DashBoardFragment>() {
 
-        }.getType(), URLConstant.NEWS_INDEX,"newList");
+        }.getType(), URLConstant.NEWS_INDEX, "newList");
     }
 
 

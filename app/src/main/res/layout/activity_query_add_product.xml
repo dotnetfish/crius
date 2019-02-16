@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/item_input_panel" android:background="@color/white"
+        android:padding="5.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15.0dip">
+        <RelativeLayout android:orientation="horizontal"
+            android:background="@drawable/input_bottom_line_hover" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:layout_centerVertical="true">
+            <ImageView android:id="@id/chat_emotion"
+                android:layout_width="30.0dip"
+                android:layout_height="30.0dip"
+                android:src="@drawable/icon_search"
+                android:layout_alignParentBottom="true" />
+            <EditText android:textSize="14.0sp"
+                android:gravity="center_vertical"
+                android:id="@id/keyword"
+                android:background="@color/transparent"
+                android:padding="3.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="30.0dip" android:layout_marginLeft="30.0dip"
+                android:hint="查找商品" android:singleLine="false" android:digits="._@0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal"
+        android:id="@+id/item_product" android:background="@drawable/item_background_top" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/item_input_panel">
+        <ImageView android:layout_width="30.0dip" android:layout_height="30.0dip"
+            android:src="@drawable/icon_contact_add" />
+        <TextView android:textColor="@color/theme_text_color" android:id="@id/label_user_account" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/item_group_id" android:background="@drawable/item_background_middle" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="50.0dip"
+        android:layout_below="@id/item_product">
+        <ImageView android:layout_width="30.0dip" android:layout_height="30.0dip" android:src="@drawable/icon_contact_group" />
+        <TextView android:textColor="@color/theme_text_color" android:id="@id/label_group_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/item_public_account" android:background="@drawable/item_background_bottom" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_below="@id/item_group_id">
+        <ImageView android:layout_width="30.0dip" android:layout_height="30.0dip" android:src="@drawable/icon_contact_public" />
+        <TextView android:textColor="@color/theme_text_color" android:id="@id/label_public_account" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" />
+    </LinearLayout>
+    <TextView android:textSize="16.0sp" android:textColor="@color/darkgray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dip" android:text="" android:layout_below="@id/item_public_account" android:layout_centerHorizontal="true" />
+</RelativeLayout>

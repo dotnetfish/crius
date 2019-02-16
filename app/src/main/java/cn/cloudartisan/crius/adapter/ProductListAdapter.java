@@ -19,9 +19,11 @@ import java.util.List;
 
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.app.Global;
+import cn.cloudartisan.crius.app.URLConstant;
 import cn.cloudartisan.crius.bean.Bottle;
 import cn.cloudartisan.crius.bean.Message;
 import cn.cloudartisan.crius.bean.NewsInfo;
+import cn.cloudartisan.crius.bean.ProductInfo;
 import cn.cloudartisan.crius.bean.User;
 import cn.cloudartisan.crius.component.EmoticonsTextView;
 import cn.cloudartisan.crius.component.WebImageView;
@@ -32,10 +34,10 @@ import cn.cloudartisan.crius.util.StringUtils;
 
 public class ProductListAdapter extends BaseAdapter {
     protected Context context;
-    protected List<NewsInfo> list;
+    protected List<ProductInfo> list;
     User user;
 
-    public ProductListAdapter(Context c, List<NewsInfo> list) {
+    public ProductListAdapter(Context c, List<ProductInfo> list) {
         context = c;
         this.list = list;
         user = Global.getCurrentUser();
@@ -45,8 +47,8 @@ public class ProductListAdapter extends BaseAdapter {
         return list.size();
     }
 
-    public NewsInfo getItem(int position) {
-        return (NewsInfo)list.get(position);
+    public ProductInfo getItem(int position) {
+        return (ProductInfo)list.get(position);
     }
 
     public long getItemId(int position) {
@@ -56,27 +58,41 @@ public class ProductListAdapter extends BaseAdapter {
     public View getView(int index, View itemMessageView, ViewGroup parent) {
         ProductListAdapter.ViewHolder viewHolder = null;
         if(itemMessageView == null) {
-            itemMessageView = LayoutInflater.from(context).inflate(R.layout.item_message, null);
+            itemMessageView = LayoutInflater.from(context).inflate(R.layout.item_product, null);
          viewHolder = new ProductListAdapter.ViewHolder();
-            viewHolder.senderName = (TextView)itemMessageView.findViewById(R.id.senderName);
-            viewHolder.status = (ImageView)itemMessageView.findViewById(R.id.static_icon);
-            viewHolder.newMsgSumLabel = (TextView)itemMessageView.findViewById(R.id.item_newmsg_label);
-            viewHolder.msgPreview = (EmoticonsTextView)itemMessageView.findViewById(R.id.msgPreview);
+            viewHolder.p_num = (TextView)itemMessageView.findViewById(R.id.p_num);
+           // viewHolder.status = (ImageView)itemMessageView.findViewById(R.id.ic);
+            viewHolder.p_price = (TextView)itemMessageView.findViewById(R.id.p_price);
+            viewHolder.p_s_price = (TextView) itemMessageView.findViewById(R.id.p_s_price);
             viewHolder.timeText = (TextView)itemMessageView.findViewById(R.id.timeText);
+            viewHolder.icon=(WebImageView)itemMessageView.findViewById(R.id.p_img);
+            viewHolder.title=(TextView)itemMessageView.findViewById(R.id.p_name);
+            viewHolder.p_sale_count=(TextView)itemMessageView.findViewById(R.id.p_s_count);
+            viewHolder.timeText=(TextView)itemMessageView.findViewById(R.id.timeText) ;
             itemMessageView.setTag(viewHolder);
         } else {
             viewHolder =(ProductListAdapter.ViewHolder) itemMessageView.getTag();
         }
+        ProductInfo item=getItem(index);
        //Message message = MessageDBManager.getManager().queryLastMessage(getItem(index).getId().toString(), new String[] {"700"});
        // if(user.getAccount().equals(getItem(index).sender)) {
        //     viewHolder.icon.load(FileURLBuilder.getUserIconUrl(getItem(index).receiver), R.drawable.icon_head_default);
        // } else {
-            viewHolder.icon.load(getItem(index).getImgThumbs(), R.drawable.icon_head_default);
+        if(getItem(index).getImgThumbs()!=null && StringUtils.isNotEmpty(getItem(index).getImgThumbs())){
+            viewHolder.icon.load(URLConstant.DOMAIN+getItem(index).getImgThumbs(), R.drawable.icon_head_default);
+        }
+
        // }
-        viewHolder.senderName.setText(getItem(index).getTitle() == null ? "未标识商品" : getItem(index).getTitle());
-        viewHolder.msgPreview.setEmoticonValign(0);
-        viewHolder.msgPreview.setText(getItem(index).getBrief());
-        viewHolder.timeText.setText(AppTools.howTimeAgo(context, Long.valueOf(getItem(index).getPublishTime()).longValue()));
+        viewHolder.title.setText(getItem(index).getTitle() == null ? "未标识商品" : getItem(index).getTitle());
+       // viewHolder.msgPreview.setEmoticonValign(0);
+
+        viewHolder.p_num.setText(getRes(R.string.stock_quantity,String.valueOf(item.getNum())));
+        viewHolder.p_price.setText(getRes(R.string.price,String.valueOf(item.getMarket_price())));
+        viewHolder.p_s_price.setText(getRes(R.string.sell_price,String.valueOf(item.getSale_price())));
+        viewHolder.p_sale_count.setText(getRes(R.string.sale_out_count,String.valueOf(item.getSales_count())));
+
+        viewHolder.timeText.setText(getItem(index).getPublishTime());
+        //viewHolder.timeText.setText(AppTools.howTimeAgo(context, Long.valueOf(getItem(index).getPublishTime()).longValue()));
        // long noReadSum = MessageDBManager.getManager().countNewBySender(getItem(index).getId());
         //if(noReadSum > 0) {
           //  viewHolder.newMsgSumLabel.setVisibility(View.VISIBLE);
@@ -84,7 +100,7 @@ public class ProductListAdapter extends BaseAdapter {
         //} else {
           //  viewHolder.newMsgSumLabel.setVisibility(View.GONE);
        // }
-        viewHolder.status.setVisibility(View.GONE);
+        //viewHolder.status.setVisibility(View.GONE);
         //if((message != null) && ("-2".equals(message.status))) {
         //    viewHolder.status.setVisibility(View.VISIBLE);
        //     viewHolder.status.setImageResource(R.drawable.item_msg_state_sending);
@@ -95,7 +111,11 @@ public class ProductListAdapter extends BaseAdapter {
        // }
         return itemMessageView;
     }
-    
+
+    private String getRes(int resId,String s) {
+        return context.getResources().getString(resId)+s;
+    }
+
     public static String getPreviewText(Message message) {
         if ((message != null) && ("1".equals(message.fileType))) {
             return "[图片]";
@@ -127,9 +147,11 @@ return "";
     
     class ViewHolder {
         WebImageView icon;
-        EmoticonsTextView msgPreview;
-        TextView newMsgSumLabel;
-        TextView senderName;
+        TextView p_price;
+        TextView p_num;
+        TextView p_s_price;
+        TextView title;
+        TextView p_sale_count;
         ImageView status;
         TextView timeText;
     }

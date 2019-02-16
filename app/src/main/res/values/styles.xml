@@ -168,6 +168,17 @@
         <item name="android:layout_height">15.0dip</item>
         <item name="android:singleLine">true</item>
     </style>
+    <style name="item_sub_title"
+        parent="@android:style/Widget.TextView">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">3sp</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:singleLine">true</item>
+    </style>
     <style name="TipsLargeStyle"
            parent="@android:style/Widget.TextView">
         <item name="android:textSize">8.0sp</item>
@@ -195,5 +206,52 @@
     <style name="ToastAnimation">
         <item name="android:windowEnterAnimation">@anim/toast_in</item>
         <item name="android:windowExitAnimation">@anim/toast_out</item>
+    </style>
+
+    <style name="ButtonStyle.Blue" parent="@style/ButtonBaseStyle">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">@drawable/long_btn_blue_bg_selector</item>
+        <item name="android:shadowColor">#26000000</item>
+        <item name="android:shadowDy">-2.0</item>
+        <item name="android:shadowRadius">0.1</item>
+    </style>
+    <style name="ButtonBaseStyle" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/font_size_3</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">44.0dip</item>
+        <item name="android:layout_marginLeft">@dimen/button_item_left_right_margin</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+        <item name="android:layout_marginRight">@dimen/button_item_left_right_margin</item>
+    </style>
+    <style name="TitleBarShadowStyle">
+        <item name="android:background">@drawable/title_bar_shadow</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">3.0dip</item>
+    </style>
+    <style name="SettingItemTips">
+        <item name="android:textSize">@dimen/setting_item_tips_text_size</item>
+        <item name="android:textColor">@color/color_B</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/setting_item_tips_left_right_margin</item>
+        <item name="android:layout_marginTop">@dimen/setting_item_tips_top_margin</item>
+        <item name="android:layout_marginRight">@dimen/setting_item_tips_left_right_margin</item>
+        <item name="android:layout_marginBottom">@dimen/setting_item_tips_bottom_margin</item>
+        <item name="android:lineSpacingExtra">1.0dip</item>
+    </style>
+    <style name="PasswordEditTextStyle" parent="@style/editAccountInfoTextStyle">
+        <item name="android:maxLength">16</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+    <style name="editAccountInfoTextStyle">
+        <item name="android:textSize">@dimen/primary_text_size</item>
+        <item name="android:textColor">@color/color_A</item>
+        <item name="android:textColorHint">#333a404c</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textCursorDrawable">@drawable/edit_cursor_background</item>
     </style>
 </resources>
