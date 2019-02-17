@@ -25,7 +25,7 @@
     <color name="sub_menu_pressed_color">@color/action_dropdown_pressed_color</color>
     <color name="green_btn_color_disable">#7fff5454</color>
     <color name="green_btn_color_pressed">#ffd24242</color>
-    <color name="green_btn_color_normal">#ffff0000</color>
+    <color name="green_btn_color_normal">#ff3399cc</color>
     <color name="green_btn_border_color">#ffd24242</color>
     <color name="green_btn_text_color_disable">#ffff0000</color>
     <color name="green_top_btn_color_disable">#ffd24242</color>

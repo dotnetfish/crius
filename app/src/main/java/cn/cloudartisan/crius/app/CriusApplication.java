@@ -6,6 +6,8 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.danikula.videocache.HttpProxyCacheServer;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -56,6 +58,16 @@ public class CriusApplication extends Application {
         CrashLogUtils.getInstace().uploadCrashLogFile();
        // bbitContext = new ClassPathXmlApplicationContext("biz-sao-client.xml");
 
+    }
+    private HttpProxyCacheServer proxy;
+
+    public static HttpProxyCacheServer getProxy(Context context) {
+
+        return _context.proxy == null ? (_context.proxy = _context.newProxy()) : _context.proxy;
+    }
+
+    private HttpProxyCacheServer newProxy() {
+        return new HttpProxyCacheServer(this);
     }
    // public  ApplicationContext getBBitContext(){
      //   return bbitContext;

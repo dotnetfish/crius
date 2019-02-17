@@ -39,6 +39,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.product.ProductDetailActivity"></activity>
+        <activity android:name=".ui.product.OrderItemActivity"></activity>
         <activity android:alwaysRetainTaskState="true" android:launchMode="singleTask"
             android:name="cn.cloudartisan.crius.component.BaseWebActivity"
             android:screenOrientation="portrait"/>

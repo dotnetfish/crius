@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/window_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/networkWarnPanel"
+        layout="@layout/layout_network_disable"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/main_account_login_country_choose_container"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_top_bottom_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_top_selector"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6.0dip"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold"
+                    android:text="配送地址"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_input_account_phone"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_middle_list_single_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_middle_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="260dip">
+
+
+                   <LinearLayout android:orientation="vertical"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content">
+                           <TextView
+
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_marginTop="6.0dip"
+                               android:ellipsize="end"
+                               android:gravity="center_vertical"
+                               android:textSize="14.0sp"
+                               android:textStyle="bold"
+                               android:text="收件人"
+                               />
+                           <EditText
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content" />
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content">
+                           <TextView
+
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_marginTop="6.0dip"
+                               android:ellipsize="end"
+                               android:gravity="center_vertical"
+                               android:textSize="14.0sp"
+                               android:textStyle="bold"
+                               android:text="联系电话"
+                               />
+                           <EditText
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content" />
+                       </LinearLayout>
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content">
+                           <TextView
+
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_marginTop="6.0dip"
+                               android:ellipsize="end"
+                               android:gravity="center_vertical"
+                               android:textSize="14.0sp"
+                               android:textStyle="bold"
+                               android:text="邮寄地址"
+                               />
+                           <EditText
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"  />
+                       </LinearLayout>
+                   </LinearLayout>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_top_single_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_bottom_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="6.0dip"
+                android:visibility="visible">
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_top_bottom_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_top_selector"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6.0dip"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold"
+                    android:text="订单信息"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_middle_list_single_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_middle_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="260dip">
+
+
+                    <LinearLayout android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6.0dip"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:textSize="14.0sp"
+                                android:textStyle="bold"
+                                android:text="商品名称"
+                                />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6.0dip"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:textSize="14.0sp"
+                                android:textStyle="bold"
+                                android:text="商品数量"
+                                />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6.0dip"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:textSize="14.0sp"
+                                android:textStyle="bold"
+                                android:text="单价"
+                                />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"  />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6.0dip"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:textSize="14.0sp"
+                                android:textStyle="bold"
+                                android:text="合计"
+                                />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"  />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/account_password_container"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_top_bottom_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_bottom_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="6.0dip"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="支付宝"
+                        style="@style/ButtonStyle.Blue"
+                        />
+                    <TextView
+
+
+                        android:text="微信"
+                        style="@style/ButtonStyle.Blue"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

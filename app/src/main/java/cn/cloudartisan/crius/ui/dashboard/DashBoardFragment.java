@@ -41,6 +41,7 @@ import cn.cloudartisan.crius.service.MessageNotifyService;
 import cn.cloudartisan.crius.service.adapter.Adapter;
 import cn.cloudartisan.crius.service.adapter.ServiceAdapterFactory;
 import cn.cloudartisan.crius.ui.base.CIMMonitorFragment;
+import cn.cloudartisan.crius.ui.product.ProductDetailActivity;
 import cn.cloudartisan.crius.util.AppTools;
 import cn.cloudartisan.crius.util.MessageUtil;
 import cn.cloudartisan.crius.widget.CustomDialog;
@@ -63,7 +64,7 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
 
     ViewFlow viewFlow;
     ImageAdapter imageAdapter;
-    List<ADInfo> ads;
+    List<ProductInfo> ads;
     List<ProductInfo> newList;
     ProductListAdapter newsAdapter;
     PushLoadMoreListView newsListView;
@@ -109,9 +110,9 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ProductInfo info = newsAdapter.getItem(position);
-                Intent intent = new Intent(getContext(), BaseWebActivity.class);
-                intent.putExtra("url", info.getLink());
-                intent.putExtra("title", info.getTitle() );
+                Intent intent = new Intent(getContext(), ProductDetailActivity.class);
+                intent.putExtra("product", info);
+
                 startActivity(intent);
             }
         });
@@ -161,6 +162,9 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
+            Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+            intent.putExtra("product", newList.get(position));
+            startActivity(intent);
 
         /*MessageItemSource data =( (ChatItem)dataList.get(position)).source;
         view.findViewById(R.id.item_newmsg_label).setVisibility(View.GONE);
@@ -274,7 +278,7 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
             info.setLink(productInfo.getLink());
             info.setTitle(productInfo.getTitle());
 
-            ads.add(info);
+            ads.add(productInfo);
         }
 
         this.imageAdapter.notifyDataSetChanged();
@@ -329,5 +333,9 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
         }.getType(), URLConstant.NEWS_INDEX, "newList");
     }
 
+
+    public void onClick(){
+
+    }
 
 }

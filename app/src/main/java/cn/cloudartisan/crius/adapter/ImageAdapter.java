@@ -30,7 +30,9 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.app.URLConstant;
 import cn.cloudartisan.crius.bean.ADInfo;
+import cn.cloudartisan.crius.bean.ProductInfo;
 import cn.cloudartisan.crius.component.BaseWebActivity;
+import cn.cloudartisan.crius.ui.product.ProductDetailActivity;
 
 import java.util.List;
 
@@ -53,17 +55,17 @@ public class ImageAdapter extends BaseAdapter {
 			URLConstant.DOMAIN+"/templates/sport/images/banner_3.png",
 			URLConstant.DOMAIN+"/templates/sport/images/banner_2.png"
 	};
-	private List<ADInfo> adInfos;
+	private List<ProductInfo> productInfos;
 
-	public ImageAdapter(Context context,List<ADInfo> data) {
+	public ImageAdapter(Context context,List<ProductInfo> data) {
 		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		this.adInfos=data;
+		this.productInfos=data;
 
 	}
 
 	@Override
 	public int getCount() {
-		return adInfos.size();
+		return productInfos.size();
 	}
 
 	@Override
@@ -88,7 +90,7 @@ public class ImageAdapter extends BaseAdapter {
 		builder.bitmapConfig(Bitmap.Config.RGB_565);
 		builder.build();
 		ImageView imageView=(ImageView) convertView.findViewById(R.id.imgView);
-		ImageLoader.getInstance().displayImage(adInfos.get(position).getImage(), imageView, new ImageLoadingListener() {
+		ImageLoader.getInstance().displayImage(productInfos.get(position).getImgThumbs(), imageView, new ImageLoadingListener() {
 			@Override
 			public void onLoadingStarted(String s, View view) {
 
@@ -113,9 +115,9 @@ public class ImageAdapter extends BaseAdapter {
 imageView.setOnClickListener(new View.OnClickListener() {
 	@Override
 	public void onClick(View v) {
-		Intent intent = new Intent(parentView.getContext(), BaseWebActivity.class);
-		intent.putExtra("url", adInfos.get(position).getLink());
-		intent.putExtra("title",adInfos.get(position).getTitle());
+		Intent intent = new Intent(parentView.getContext(), ProductDetailActivity.class);
+		//intent.putExtra("url", adInfos.get(position).getLink());
+		intent.putExtra("product",productInfos.get(position));
 		parentView.getContext().startActivity(intent);
 	}
 });

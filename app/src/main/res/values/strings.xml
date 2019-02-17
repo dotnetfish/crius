@@ -127,6 +127,7 @@
     <string name="label_contacts_frend_count">一共%1$s位联系人</string>
     <string name="label_my_created">我创建的</string>
     <string name="label_my_join">我加入的</string>
+
     <string name="label_group_icon">群徽：</string>
     <string name="label_group_id">群ID：</string>
     <string name="label_group_name">名称：</string>
@@ -438,4 +439,11 @@
     <string name="local_name">通讯录名称</string>
     <string name="phoneNum">手机号</string>
 
+    <string name="label_product_detail">产品详情</string>
+    <string name="label_user">参与人数</string>
+    <string name="label_buy_now">立即抢购</string>
+    <string name="label_congratulation_buy">恭喜您，抢到商品</string>
+    <string name="label_congratulation_buy_desc">恭喜您，抢到商品%s,特价：￥%s</string>
+    <string name="label_congratulation_buy_cancel">残忍放弃</string>
+    <string name="label_buy_go_pay">前往支付</string>
 </resources>

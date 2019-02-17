@@ -44,6 +44,7 @@ public class ProductAdapter implements Adapter<ProductInfo> {
         }
         //info.setMarket_price(fileds.getDouble("market_price"));
         info.setNum(fileds.getInteger("stock_quantity"));
+        info.setContent(jsonObject.getString("content"));
         return info;
     }
 }
