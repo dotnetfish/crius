@@ -8,26 +8,35 @@
     <RelativeLayout
         android:id="@+id/main_account_login_country_choose_container"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/input_item_top_single_height"
+        android:layout_height="@dimen/input_item_top_bottom_height"
         android:layout_marginLeft="@dimen/list_item_left_right_margin"
         android:layout_marginRight="@dimen/list_item_left_right_margin"
         android:background="@drawable/input_bg_top_selector"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/flexible_space"
         android:paddingRight="@dimen/flexible_space">
-        <!-- <com.smartisan.libstyle.font.ext.FreeScaleTextView
-        android:textSize="@dimen/primary_text_size" android:textColor="@color/color_A" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/country_and_area" android:layout_toLeftOf="@id/main_account_login_country_name" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-     -->
-        <!-- <TextView
-             android:textSize="@dimen/primary_text_size" android:textColor="@color/color_A" android:layout_width="wrap_content" android:layout_height="wrap_content"
-             android:text="@string/country_and_area"
-             android:layout_toLeftOf="@id/main_account_login_country_name" android:layout_alignParentLeft="true"
-             android:layout_centerVertical="true" />
 
-         <ImageView android:id="@+id/btn_choose_country" android:layout_width="wrap_content" android:layout_height="@dimen/btn_choose_country_height"
-             android:layout_marginLeft="@dimen/btn_choose_country_margin_left" android:src="@drawable/select_sign" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-         <TextView android:textSize="@dimen/tertiary_text_size" android:textColor="@color/color_B" android:ellipsize="end" android:id="@+id/main_account_login_country_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/register_country_max_length" android:text="@string/China" android:singleLine="true" android:layout_toLeftOf="@id/btn_choose_country" android:layout_centerVertical="true" />
-  -->   </RelativeLayout>
+        <TextView
+            android:id="@+id/p_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6.0dip"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:textSize="14.0sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6.0dip"
+            android:ellipsize="end"
+            android:maxEms="7"
+            android:singleLine="true"
+            android:text="正在降价"
+             style="@style/text_tag_red" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_input_account_phone"
@@ -40,42 +49,104 @@
         android:paddingLeft="@dimen/flexible_space"
         android:paddingRight="@dimen/flexible_space">
 
-        <RelativeLayout android:id="@+id/p_img_holder" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/p_img_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
             <cn.cloudartisan.crius.component.WebImageView
-                android:id="@+id/p_img" android:layout_width="150.0dip"
+                android:id="@+id/p_img"
+                android:layout_width="120.0dip"
                 android:layout_height="150.0dip"
                 android:layout_centerVertical="true" />
         </RelativeLayout>
-        <RelativeLayout android:layout_width="fill_parent" android:layout_height="150.0dip"
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="150.0dip"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10.0dip"
-            android:layout_toRightOf="@id/p_img_holder" android:layout_centerVertical="true">
-            <TextView android:textStyle="bold" android:gravity="center_vertical" android:id="@+id/p_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RelativeLayout android:layout_width="match_parent"
+            android:layout_toRightOf="@id/p_img_holder">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_desc"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/lowest_price" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView android:id="@+id/p_num"
-                        android:text="p_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_toLeftOf="@+id/p_price"
-                        android:layout_centerVertical="true"  style="@style/item_sub_title" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/btn_buy">
 
-                    <TextView android:id="@+id/p_s_price" style="@style/item_sub_title"   android:layout_toLeftOf="@id/p_num"
-                        android:text="p_s_price" android:layout_width="wrap_content" android:layout_height="match_parent"  android:layout_centerVertical="true"  />
-                    <TextView android:id="@+id/p_s_count"
-                        android:layout_toLeftOf="@id/p_s_price" android:text="p_s_count" style="@style/item_sub_title"
-                        android:layout_width="wrap_content"   android:layout_height="match_parent" android:layout_centerVertical="true"  />
-                    <TextView android:id="@+id/p_price" style="@style/item_sub_title"    android:text="p_s_price" android:layout_width="wrap_content" android:layout_height="match_parent"  android:layout_centerVertical="true"  />
+                        <TextView
+                            style="@style/item_tag_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:text="@string/lower_price" />
 
+                        <TextView
+                            android:id="@+id/p_s_price"
+                            style="@style/item_price_blue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:text="123" />
+
+                        <TextView
+                            style="@style/item_tag_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:text="@string/price" />
+
+                        <TextView
+                            android:id="@+id/p_price"
+                            style="@style/item_price_blue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_buy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+
+                            style="@style/ButtonStyle.Blue"
+                            android:layout_below="@id/main_account_login_input_container"
+                            android:layout_marginTop="@dimen/button_layout_top_margin"
+                            android:enabled="true"
+                            android:onClick="onClick"
+                            android:text="@string/label_rab" />
+                    </LinearLayout>
                 </LinearLayout>
 
-
             </RelativeLayout>
-            <TextView android:textSize="10.0sp" android:textColor="@color/text_grey" android:ellipsize="marquee" android:id="@id/timeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentRight="true" android:marqueeRepeatLimit="marquee_forever" />
+
 
         </RelativeLayout>
     </RelativeLayout>
@@ -84,7 +155,7 @@
     <RelativeLayout
         android:id="@+id/account_password_container"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/input_item_top_single_height"
+        android:layout_height="@dimen/input_item_top_bottom_height"
         android:layout_marginLeft="@dimen/list_item_left_right_margin"
         android:layout_marginRight="@dimen/list_item_left_right_margin"
         android:background="@drawable/input_bg_bottom_normal"
@@ -93,6 +164,26 @@
         android:paddingRight="6.0dip"
         android:visibility="visible">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6.0dip"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:text="数量有限，抢完为止"
+            android:textSize="14.0sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6.0dip"
+            android:ellipsize="end"
+            android:maxEms="7"
+            android:singleLine="true"
+            android:text="10人正在抢购"
+            android:textSize="14.0sp" />
 
     </RelativeLayout>
 

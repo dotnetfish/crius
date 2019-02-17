@@ -6,6 +6,7 @@
 package cn.cloudartisan.crius.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,55 +61,32 @@ public class ProductListAdapter extends BaseAdapter {
         if(itemMessageView == null) {
             itemMessageView = LayoutInflater.from(context).inflate(R.layout.item_product, null);
          viewHolder = new ProductListAdapter.ViewHolder();
-            viewHolder.p_num = (TextView)itemMessageView.findViewById(R.id.p_num);
+            //viewHolder.p_num = (TextView)itemMessageView.findViewById(R.id.p_num);
            // viewHolder.status = (ImageView)itemMessageView.findViewById(R.id.ic);
             viewHolder.p_price = (TextView)itemMessageView.findViewById(R.id.p_price);
+            viewHolder.p_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             viewHolder.p_s_price = (TextView) itemMessageView.findViewById(R.id.p_s_price);
-            viewHolder.timeText = (TextView)itemMessageView.findViewById(R.id.timeText);
-            viewHolder.icon=(WebImageView)itemMessageView.findViewById(R.id.p_img);
+            viewHolder.txt_desc = (TextView)itemMessageView.findViewById(R.id.txt_desc);
+            viewHolder.p_img=(WebImageView)itemMessageView.findViewById(R.id.p_img);
             viewHolder.title=(TextView)itemMessageView.findViewById(R.id.p_name);
-            viewHolder.p_sale_count=(TextView)itemMessageView.findViewById(R.id.p_s_count);
-            viewHolder.timeText=(TextView)itemMessageView.findViewById(R.id.timeText) ;
+            //viewHolder.p_sale_count=(TextView)itemMessageView.findViewById(R.id.p_s_count);
+           // viewHolder.timeText=(TextView)itemMessageView.findViewById(R.id.timeText) ;
+
             itemMessageView.setTag(viewHolder);
         } else {
             viewHolder =(ProductListAdapter.ViewHolder) itemMessageView.getTag();
         }
         ProductInfo item=getItem(index);
-       //Message message = MessageDBManager.getManager().queryLastMessage(getItem(index).getId().toString(), new String[] {"700"});
-       // if(user.getAccount().equals(getItem(index).sender)) {
-       //     viewHolder.icon.load(FileURLBuilder.getUserIconUrl(getItem(index).receiver), R.drawable.icon_head_default);
-       // } else {
+
         if(getItem(index).getImgThumbs()!=null && StringUtils.isNotEmpty(getItem(index).getImgThumbs())){
-            viewHolder.icon.load(URLConstant.DOMAIN+getItem(index).getImgThumbs(), R.drawable.icon_head_default);
+            viewHolder.p_img.load(getItem(index).getImgThumbs(), R.drawable.icon_head_default);
         }
 
-       // }
         viewHolder.title.setText(getItem(index).getTitle() == null ? "未标识商品" : getItem(index).getTitle());
-       // viewHolder.msgPreview.setEmoticonValign(0);
+            viewHolder.p_price.setText(String.valueOf(item.getMarket_price()));
+        viewHolder.p_s_price.setText(String.valueOf(item.getSale_price()));
+        viewHolder.txt_desc.setText(item.getBrief());
 
-        viewHolder.p_num.setText(getRes(R.string.stock_quantity,String.valueOf(item.getNum())));
-        viewHolder.p_price.setText(getRes(R.string.price,String.valueOf(item.getMarket_price())));
-        viewHolder.p_s_price.setText(getRes(R.string.sell_price,String.valueOf(item.getSale_price())));
-        viewHolder.p_sale_count.setText(getRes(R.string.sale_out_count,String.valueOf(item.getSales_count())));
-
-        viewHolder.timeText.setText(getItem(index).getPublishTime());
-        //viewHolder.timeText.setText(AppTools.howTimeAgo(context, Long.valueOf(getItem(index).getPublishTime()).longValue()));
-       // long noReadSum = MessageDBManager.getManager().countNewBySender(getItem(index).getId());
-        //if(noReadSum > 0) {
-          //  viewHolder.newMsgSumLabel.setVisibility(View.VISIBLE);
-           // viewHolder.newMsgSumLabel.setText(noReadSum > 100 ? "99+" : String.valueOf(noReadSum));
-        //} else {
-          //  viewHolder.newMsgSumLabel.setVisibility(View.GONE);
-       // }
-        //viewHolder.status.setVisibility(View.GONE);
-        //if((message != null) && ("-2".equals(message.status))) {
-        //    viewHolder.status.setVisibility(View.VISIBLE);
-       //     viewHolder.status.setImageResource(R.drawable.item_msg_state_sending);
-       // }
-       // if((message != null) && ("-3".equals(message.status))) {
-       //     viewHolder.status.setVisibility(View.VISIBLE);
-       //     viewHolder.status.setImageResource(R.drawable.item_msg_state_fail);
-       // }
         return itemMessageView;
     }
 
@@ -116,43 +94,15 @@ public class ProductListAdapter extends BaseAdapter {
         return context.getResources().getString(resId)+s;
     }
 
-    public static String getPreviewText(Message message) {
-        if ((message != null) && ("1".equals(message.fileType))) {
-            return "[图片]";
-        }
-        if ((message != null) && ("3".equals(message.fileType))) {
-            return "[文件]";
-        }
-        if ((message != null) && ("2".equals(message.fileType))) {
-            return "[语音]";
-        }
-        if ((message != null) && ("4".equals(message.fileType))) {
-            return "[地图]";
-        }
 
-        if((message != null) && (StringUtils.isEmpty(message.fileType)) || ("0".equals(message.fileType))) {
-            try {
-                String content = JSON.parseObject(message.content).getString("content");
-                if(message.sender.equals(Global.getCurrentUser().getAccount())) {
-                    return "我"+message.content;
-                }
-                return content;
-            } catch(Exception localException1) {
-                return "";
-            }
-
-        }
-return "";
-    }
     
     class ViewHolder {
-        WebImageView icon;
+        WebImageView p_img;
         TextView p_price;
-        TextView p_num;
+
         TextView p_s_price;
         TextView title;
-        TextView p_sale_count;
-        ImageView status;
-        TextView timeText;
+
+        TextView txt_desc;
     }
 }

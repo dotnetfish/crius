@@ -58,11 +58,7 @@ public class ImageAdapter extends BaseAdapter {
 	public ImageAdapter(Context context,List<ADInfo> data) {
 		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.adInfos=data;
-		ADInfo info=new ADInfo();
-		info.setLink(URLConstant.DOMAIN+"/news/show-141.html");
-		info.setTitle("周小川：汇率已趋于稳定，股市调整已大致到位");
-		info.setImage(URLConstant.DOMAIN+"/templates/sport/images/banner_2.png");
-		adInfos.add(info);
+
 	}
 
 	@Override

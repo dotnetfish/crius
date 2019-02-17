@@ -1,41 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:background="@drawable/simple_list_background"
-              android:layout_marginLeft="10.0dip"
-              android:layout_marginTop="10.0dip"
-    android:layout_margin="@dimen/LargePadding"
+    android:id="@+id/input_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-              android:layout_height="match_parent">
-    <TextView android:textSize="14.0sp"  android:ellipsize="end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_marginTop="6.0dip"
-        android:text="今日賽事"
-        android:maxEms="7" android:singleLine="true" />
-    <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip">
-        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
-            <cn.cloudartisan.crius.component.WebImageView
-                android:id="@+id/tlogo1" android:layout_width="32.0dip" android:layout_height="32.0dip" />
-            <TextView android:textSize="14.0sp"  android:ellipsize="end"
-                android:id="@+id/team1" android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:layout_marginTop="6.0dip"
-                android:text="得累斯得累斯顿得累斯顿得累斯顿顿"
-                android:maxEms="7" android:singleLine="true" />
-        </LinearLayout>
-        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
-            <TextView android:textSize="16.0sp" android:textColor="#ff34a853" android:gravity="center_horizontal" android:id="@+id/score" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
-            <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="6.0dip">
-                  <TextView android:textSize="15.0sp"  android:id="@+id/time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="球半/两球半" />
-               </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/main_account_login_country_choose_container"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/input_item_top_bottom_height"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_top_selector"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="@dimen/flexible_space">
+        <TextView android:textSize="14.0sp"  android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="6.0dip"
+            android:text="正在抢购"
+            android:maxEms="7" android:singleLine="true" />
+         </RelativeLayout>
 
-        </LinearLayout>
-        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+    <RelativeLayout
+        android:id="@+id/rl_input_account_phone"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/input_item_middle_list_single_height"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_middle_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="@dimen/flexible_space">
+
+        <RelativeLayout android:id="@+id/p_img_holder" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <cn.cloudartisan.crius.component.WebImageView
-                android:id="@+id/tlogo_2" android:layout_width="32.0dip" android:layout_height="32.0dip" />
-            <TextView android:textSize="14.0sp"  android:ellipsize="end" android:id="@+id/team2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:text="得累斯顿" android:maxEms="7" android:singleLine="true" />
-        </LinearLayout>
-    </LinearLayout>
+                android:id="@+id/p_img" android:layout_width="150.0dip"
+                android:layout_height="150.0dip"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="150.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toRightOf="@id/p_img_holder" android:layout_centerVertical="true">
+
+            <TextView android:textStyle="bold" android:gravity="center_vertical" android:id="@+id/p_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               >
+                <TextView android:id="@+id/p_l_price" style="@style/item_sub_title"
+                    android:text="p_s_price" android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"  />
+
+                <TextView android:id="@+id/p_s_price" style="@style/item_sub_title"   android:layout_toLeftOf="@id/p_l_price"
+                    android:text="p_s_price" android:layout_width="wrap_content" android:layout_height="match_parent"  android:layout_centerVertical="true"  />
+
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+
+                    <TextView android:id="@+id/p_num"
+                        android:text="p_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@+id/p_price"
+                        android:layout_centerVertical="true"  style="@style/item_sub_title" />
+
+                      <TextView android:id="@+id/p_s_count"
+                        android:layout_toLeftOf="@id/p_s_price" android:text="p_s_count" style="@style/item_sub_title"
+                        android:layout_width="wrap_content"   android:layout_height="match_parent" android:layout_centerVertical="true"  />
+                    <TextView android:id="@+id/p_price" style="@style/item_sub_title"    android:text="p_s_price" android:layout_width="wrap_content" android:layout_height="match_parent"  android:layout_centerVertical="true"  />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            <TextView android:textSize="10.0sp" android:textColor="@color/text_grey" android:ellipsize="marquee" android:id="@id/timeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentRight="true" android:marqueeRepeatLimit="marquee_forever" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/account_password_container"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/input_item_top_single_height"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_bottom_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="6.0dip"
+        android:visibility="visible">
+
+
+    </RelativeLayout>
 
 
 </LinearLayout>

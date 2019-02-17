@@ -3,6 +3,7 @@ package cn.cloudartisan.crius.service.adapter;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 
+import cn.cloudartisan.crius.app.URLConstant;
 import cn.cloudartisan.crius.bean.ProductInfo;
 
 public class ProductAdapter implements Adapter<ProductInfo> {
@@ -23,10 +24,10 @@ public class ProductAdapter implements Adapter<ProductInfo> {
         ProductInfo info=new ProductInfo();
         info.setTitle(jsonObject.getString("title"));
 
-        info.setBrief(jsonObject.getString("brief"));
+        info.setBrief(jsonObject.getString("zhaiyao"));
         info.setLink((String) jsonObject.get("link_url"));
         //info.setComments(jsonObject.getInteger("comments"));
-        info.setImgThumbs(jsonObject.getString("img_url"));
+        info.setImgThumbs(URLConstant.DOMAIN+jsonObject.getString("img_url"));
         info.setId(jsonObject.getInteger("id"));
         info.setPublishTime(jsonObject.getString("add_time"));
 

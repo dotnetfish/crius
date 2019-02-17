@@ -170,7 +170,50 @@
     </style>
     <style name="item_sub_title"
         parent="@android:style/Widget.TextView">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">3sp</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="item_tag_price"
+        parent="@android:style/Widget.TextView">
         <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:layout_marginLeft">3sp</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="text_tag_red">
+        <item name="android:textSize">8.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/new_tips_bg</item>
+        <item name="android:padding">5.0dip</item>
+        <item name="android:layout_width">15.0dip</item>
+        <item name="android:layout_height">15.0dip</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="item_price_blue"
+        parent="@android:style/Widget.TextView">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:layout_marginLeft">3sp</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="item_price"
+        parent="@android:style/Widget.TextView">
+        <item name="android:textSize">12.0sp</item>
         <item name="android:textColor">@color/text_grey</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_marginLeft">3sp</item>

@@ -8,31 +8,82 @@
     <include android:id="@id/networkWarnPanel" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="50.0dip" layout="@layout/layout_network_disable" />
 
     <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-    <RelativeLayout android:layout_width="fill_parent" android:layout_height="123dip">
 
-        <cn.cloudartisan.crius.component.ViewFlow
-                android:duplicateParentState="true" android:id="@+id/viewflow"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/input_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/main_account_login_country_choose_container"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-        >
+                android:layout_height="@dimen/input_item_top_single_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_top_selector"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
+                 </RelativeLayout>
 
-        </cn.cloudartisan.crius.component.ViewFlow>
-        <cn.cloudartisan.crius.component.CircleFlowIndicator
-                android:padding="10dip"
-                android:layout_height="wrap_content"
+            <RelativeLayout
+                android:id="@+id/rl_input_account_phone"
                 android:layout_width="fill_parent"
-                android:id="@+id/viewflowindic"
-                android:layout_gravity="center_horizontal"
-                android:layout_alignBottom="@id/viewflow"
+                android:layout_height="@dimen/input_item_middle_list_single_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_middle_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
+                <RelativeLayout android:layout_width="fill_parent" android:layout_height="260dip">
 
-                app:inactiveType="fill"
-                app:activeColor="@color/actionbar_selector_color"
-                app:centered="true"
-                app:radius="4dip"
-                app:fadeOut="0" />
+                    <cn.cloudartisan.crius.component.ViewFlow
+                        android:duplicateParentState="true" android:id="@+id/viewflow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        >
+
+                    </cn.cloudartisan.crius.component.ViewFlow>
 
 
-    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/account_password_container"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_top_bottom_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_bottom_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="6.0dip"
+                android:visibility="visible">
+
+                <cn.cloudartisan.crius.component.CircleFlowIndicator
+                    android:padding="10dip"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/viewflowindic"
+                    android:layout_gravity="center_horizontal"
+
+
+                    app:inactiveType="fill"
+                    app:activeColor="@color/actionbar_selector_color"
+                    app:centered="true"
+                    app:radius="4dip"
+                    app:fadeOut="0" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
 
 
 
