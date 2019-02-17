@@ -1,84 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@+id/input_layout" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:gravity="center_vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/input_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
         android:id="@+id/main_account_login_country_choose_container"
-        android:background="@drawable/input_bg_top_selector"
-        android:paddingLeft="@dimen/flexible_space"
-        android:paddingRight="@dimen/flexible_space"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/input_item_top_bottom_height"
         android:layout_marginLeft="@dimen/list_item_left_right_margin"
-        android:layout_marginRight="@dimen/list_item_left_right_margin">
-       <!-- <com.smartisan.libstyle.font.ext.FreeScaleTextView
-       android:textSize="@dimen/primary_text_size" android:textColor="@color/color_A" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/country_and_area" android:layout_toLeftOf="@id/main_account_login_country_name" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-    -->
-        <TextView
-            android:textSize="@dimen/primary_text_size" android:textColor="@color/color_A" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/country_and_area" android:layout_toLeftOf="@id/main_account_login_country_name" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_top_selector"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="@dimen/flexible_space">
+        <!-- <com.smartisan.libstyle.font.ext.FreeScaleTextView
+        android:textSize="@dimen/primary_text_size" android:textColor="@color/color_A" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/country_and_area" android:layout_toLeftOf="@id/main_account_login_country_name" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+     -->
+        <!-- <TextView
+             android:textSize="@dimen/primary_text_size" android:textColor="@color/color_A" android:layout_width="wrap_content" android:layout_height="wrap_content"
+             android:text="@string/country_and_area"
+             android:layout_toLeftOf="@id/main_account_login_country_name" android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true" />
 
-        <ImageView android:id="@+id/btn_choose_country" android:layout_width="wrap_content" android:layout_height="@dimen/btn_choose_country_height"
-            android:layout_marginLeft="@dimen/btn_choose_country_margin_left" android:src="@drawable/select_sign" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-        <TextView android:textSize="@dimen/tertiary_text_size" android:textColor="@color/color_B" android:ellipsize="end" android:id="@+id/main_account_login_country_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/register_country_max_length" android:text="@string/China" android:singleLine="true" android:layout_toLeftOf="@id/btn_choose_country" android:layout_centerVertical="true" />
-    </RelativeLayout>
-    <RelativeLayout android:gravity="center_vertical"
-        android:id="@+id/rl_input_account_phone" android:background="@drawable/input_bg_middle_normal"
-        android:paddingLeft="@dimen/flexible_space" android:paddingRight="@dimen/flexible_space"
-        android:layout_width="fill_parent" android:layout_height="@dimen/input_item_middle_height"
+         <ImageView android:id="@+id/btn_choose_country" android:layout_width="wrap_content" android:layout_height="@dimen/btn_choose_country_height"
+             android:layout_marginLeft="@dimen/btn_choose_country_margin_left" android:src="@drawable/select_sign" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+         <TextView android:textSize="@dimen/tertiary_text_size" android:textColor="@color/color_B" android:ellipsize="end" android:id="@+id/main_account_login_country_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/register_country_max_length" android:text="@string/China" android:singleLine="true" android:layout_toLeftOf="@id/btn_choose_country" android:layout_centerVertical="true" />
+  -->   </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_input_account_phone"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/input_item_middle_height"
         android:layout_marginLeft="@dimen/list_item_left_right_margin"
-        android:layout_marginRight="@dimen/list_item_left_right_margin">
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_middle_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="@dimen/flexible_space">
+
         <TextView
-            android:textSize="@dimen/primary_text_size"
+            android:id="@+id/register_phone_state_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12.0dip"
+            android:text="+86"
             android:textColor="@color/color_B"
-            android:id="@+id/register_phone_state_code" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_marginRight="12.0dip"
-            android:layout_centerVertical="true" android:text="+86" />
-      <TextView android:textSize="@dimen/localphone_text_size"
-            android:textColor="#ff999999" android:gravity="center" android:id="@+id/localPhone"
-            android:background="@drawable/my_number" android:visibility="gone" android:layout_width="@dimen/localphone_text_width" android:layout_height="wrap_content" android:text="@string/localNumber" android:singleLine="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-       <ImageView android:id="@+id/edit_phone_error" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:src="@drawable/message_warning" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
-       <EditText android:id="@+id/editPhone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/phoneNum" android:maxLength="11" android:layout_toLeftOf="@id/edit_phone_error" android:layout_toRightOf="@id/register_phone_state_code" android:layout_centerVertical="true" android:inputType="number" style="@style/editAccountInfoTextStyle" />
-   </RelativeLayout>
-    <RelativeLayout android:gravity="center_vertical" android:id="@+id/SmsVerification_layout"
-        android:background="@drawable/input_bg_bottom_normal" android:paddingLeft="@dimen/flexible_space"
-        android:paddingRight="@dimen/flexible_space" android:layout_width="fill_parent"
+            android:textSize="@dimen/primary_text_size" />
+
+        <TextView
+            android:id="@+id/localPhone"
+            android:layout_width="@dimen/localphone_text_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/my_number"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/localNumber"
+            android:textColor="#ff999999"
+            android:textSize="@dimen/localphone_text_size"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/edit_phone_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12.0dip"
+            android:contentDescription="@null"
+            android:src="@drawable/message_warning"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/editPhone"
+            style="@style/editAccountInfoTextStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/edit_phone_error"
+            android:layout_toRightOf="@id/register_phone_state_code"
+            android:hint="@string/common_account"
+
+            android:maxLength="11" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/SmsVerification_layout"
+        android:layout_width="fill_parent"
         android:layout_height="@dimen/input_item_top_bottom_height"
         android:layout_marginLeft="@dimen/list_item_left_right_margin"
-        android:layout_marginRight="@dimen/list_item_left_right_margin">
-      <EditText android:id="@+id/SmsVerificationCode_et"
-            android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:hint="@string/verificationCode" android:maxLength="6"
-            android:layout_centerVertical="true" android:inputType="number"
-          style="@style/editAccountInfoTextStyle" /></RelativeLayout>
-    <RelativeLayout android:gravity="center_vertical" android:id="@+id/account_password_container"
-        android:background="@drawable/input_bg_bottom_normal" android:paddingLeft="@dimen/flexible_space"
-        android:paddingRight="6.0dip" android:visibility="gone" android:layout_width="fill_parent"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_bottom_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="@dimen/flexible_space"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/SmsVerificationCode_et"
+            style="@style/editAccountInfoTextStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:hint="@string/verificationCode"
+            android:inputType="number"
+            android:maxLength="6" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/account_password_container"
+        android:layout_width="fill_parent"
         android:layout_height="@dimen/input_item_top_bottom_height"
         android:layout_marginLeft="@dimen/list_item_left_right_margin"
-        android:layout_marginRight="@dimen/list_item_left_right_margin">
-        <EditText android:inputType="textPassword" android:id="@+id/account_password"
-            android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:layout_marginRight="6.0dip" android:hint="@string/loginPassword"
-            android:layout_alignParentTop="true" android:layout_centerVertical="true" style="@style/PasswordEditTextStyle" />
-   </RelativeLayout>
-    <RelativeLayout android:gravity="center_vertical" android:id="@+id/account_verification_code_layout"
-        android:background="@drawable/input_bg_bottom_normal" android:paddingLeft="@dimen/flexible_space"
-        android:visibility="gone" android:layout_width="fill_parent"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_bottom_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="6.0dip"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/account_password"
+            style="@style/PasswordEditTextStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6.0dip"
+            android:hint="@string/loginPassword"
+            android:inputType="textPassword" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/account_verification_code_layout"
+        android:layout_width="fill_parent"
         android:layout_height="@dimen/input_item_top_bottom_height"
-        android:layout_marginLeft="@dimen/list_item_left_right_margin" android:layout_marginRight="@dimen/list_item_left_right_margin">
-        <EditText android:id="@+id/account_verification_code_et"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:hint="@string/loginVerificationCode" android:maxLength="10"
-            android:layout_alignParentLeft="true" android:layout_centerVertical="true"
-            style="@style/editAccountInfoTextStyle" android:inputType="number" />
-     <ImageButton android:id="@+id/account_verification_refresh_ib"
-            android:background="@drawable/refresh" android:layout_width="wrap_content"
-         android:layout_height="wrap_content" android:layout_alignParentRight="true"
-         android:layout_centerVertical="true" />
-        <ImageView android:id="@+id/account_verification_code_iv"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_bottom_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/account_verification_code_et"
+            style="@style/editAccountInfoTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:hint="@string/loginVerificationCode"
+            android:inputType="number"
+            android:maxLength="10" />
+
+        <ImageButton
+            android:id="@+id/account_verification_refresh_ib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/refresh" />
+
+        <ImageView
+            android:id="@+id/account_verification_code_iv"
             android:layout_width="@dimen/verification_code_icon_width"
-            android:layout_height="@dimen/verification_code_icon_height" android:layout_marginRight="12.0dip"
-            android:layout_toLeftOf="@id/account_verification_refresh_ib" android:layout_centerVertical="true"
+            android:layout_height="@dimen/verification_code_icon_height"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12.0dip"
+            android:layout_toLeftOf="@id/account_verification_refresh_ib"
             android:contentDescription="@null" />
     </RelativeLayout>
 </LinearLayout>

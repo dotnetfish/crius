@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import com.alibaba.fastjson.JSONObject;
 
 import com.alibaba.fastjson.TypeReference;
@@ -25,6 +27,7 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import cn.cloudartisan.crius.app.CriusApplication;
+import cn.cloudartisan.crius.app.URLConstant;
 import cn.cloudartisan.crius.client.android.CIMPushManager;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.app.Global;
@@ -49,7 +52,7 @@ import java.util.Map;
 public class LoginActivity extends BaseActivity implements TextWatcher, HttpAPIResponser, ImageLoadingListener {
     EditText accountEdit;
     WebImageView icon;
-    Button loginButton;
+    TextView loginButton;
     DisplayImageOptions options;
     EditText passwordEdit;
     HttpAPIRequester requester;
@@ -60,11 +63,11 @@ public class LoginActivity extends BaseActivity implements TextWatcher, HttpAPIR
         GlobalDatabaseHelper.destoryAll();
         self = Global.getCurrentUser();
         icon = (WebImageView)findViewById(R.id.icon);
-        findViewById(R.id.label_register).setOnClickListener(this);
-        accountEdit = (EditText)findViewById(R.id.account);
-        passwordEdit = (EditText)findViewById(R.id.password);
-        loginButton = (Button)findViewById(R.id.login_button);
-        loginButton.setOnClickListener(this);
+        findViewById(R.id.main_account_forgetPasswd).setOnClickListener(this);
+        accountEdit = (EditText)findViewById(R.id.editPhone);
+        passwordEdit = (EditText)findViewById(R.id.account_password);
+        loginButton = (TextView)findViewById(R.id.loginButton);
+        //loginButton.setOnClickListener(this);
         accountEdit.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable arg0) {
@@ -116,19 +119,20 @@ public class LoginActivity extends BaseActivity implements TextWatcher, HttpAPIR
     
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.login_button:
+            case R.id.loginButton:
             {
                 //ToDo:for debug write hard code,
               /* User user=new User();
                 user.setAccount("superstudio");//="superstudio";
                 user.setGender("0");//="0";
                 user.setName("superman");//="superman";*/
-
+                String loginUrl= URLConstant.getUrl("Account","Login");
                 requester.login(new TypeReference<LoginActivity>() {
                 }.getType(), null, "http://www.cloudartisan.cn/mvc/generalhandler.ashx?controller=AccountController&action=Login");
+
                 return;
             }
-            case R.id.label_register:
+            case R.id.main_account_forgetPasswd:
             {
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;

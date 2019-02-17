@@ -1,42 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:background="@drawable/simple_list_background" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:id="@+id/p_img_holder" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <cn.cloudartisan.crius.component.WebImageView
-            android:id="@+id/p_img" android:layout_width="50.0dip"
-            android:layout_height="50.0dip"
-            android:layout_centerVertical="true" />
-    </RelativeLayout>
-    <RelativeLayout android:layout_width="fill_parent" android:layout_height="50.0dip"
-        android:layout_marginLeft="10.0dip"
-        android:layout_toRightOf="@id/p_img_holder" android:layout_centerVertical="true">
-        <TextView android:textStyle="bold" android:gravity="center_vertical" android:id="@+id/p_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <RelativeLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/input_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-                <TextView android:id="@+id/p_num"
-                    android:text="p_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_toLeftOf="@+id/p_price"
-                    android:layout_centerVertical="true"  style="@style/item_sub_title" />
+    <RelativeLayout
+        android:id="@+id/main_account_login_country_choose_container"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/input_item_top_single_height"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_top_selector"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="@dimen/flexible_space">
+        <!-- <com.smartisan.libstyle.font.ext.FreeScaleTextView
+        android:textSize="@dimen/primary_text_size" android:textColor="@color/color_A" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/country_and_area" android:layout_toLeftOf="@id/main_account_login_country_name" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+     -->
+        <!-- <TextView
+             android:textSize="@dimen/primary_text_size" android:textColor="@color/color_A" android:layout_width="wrap_content" android:layout_height="wrap_content"
+             android:text="@string/country_and_area"
+             android:layout_toLeftOf="@id/main_account_login_country_name" android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true" />
 
-                <TextView android:id="@+id/p_s_price" style="@style/item_sub_title"   android:layout_toLeftOf="@id/p_num"
-                    android:text="p_s_price" android:layout_width="wrap_content" android:layout_height="match_parent"  android:layout_centerVertical="true"  />
-                <TextView android:id="@+id/p_s_count"
-                    android:layout_toLeftOf="@id/p_s_price" android:text="p_s_count" style="@style/item_sub_title"
-                    android:layout_width="wrap_content"   android:layout_height="match_parent" android:layout_centerVertical="true"  />
-                <TextView android:id="@+id/p_price" style="@style/item_sub_title"    android:text="p_s_price" android:layout_width="wrap_content" android:layout_height="match_parent"  android:layout_centerVertical="true"  />
+         <ImageView android:id="@+id/btn_choose_country" android:layout_width="wrap_content" android:layout_height="@dimen/btn_choose_country_height"
+             android:layout_marginLeft="@dimen/btn_choose_country_margin_left" android:src="@drawable/select_sign" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+         <TextView android:textSize="@dimen/tertiary_text_size" android:textColor="@color/color_B" android:ellipsize="end" android:id="@+id/main_account_login_country_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/register_country_max_length" android:text="@string/China" android:singleLine="true" android:layout_toLeftOf="@id/btn_choose_country" android:layout_centerVertical="true" />
+  -->   </RelativeLayout>
 
-            </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_input_account_phone"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/input_item_middle_list_single_height"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_middle_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="@dimen/flexible_space">
 
+        <RelativeLayout android:id="@+id/p_img_holder" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <cn.cloudartisan.crius.component.WebImageView
+                android:id="@+id/p_img" android:layout_width="150.0dip"
+                android:layout_height="150.0dip"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="150.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toRightOf="@id/p_img_holder" android:layout_centerVertical="true">
+            <TextView android:textStyle="bold" android:gravity="center_vertical" android:id="@+id/p_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+
+                    <TextView android:id="@+id/p_num"
+                        android:text="p_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@+id/p_price"
+                        android:layout_centerVertical="true"  style="@style/item_sub_title" />
+
+                    <TextView android:id="@+id/p_s_price" style="@style/item_sub_title"   android:layout_toLeftOf="@id/p_num"
+                        android:text="p_s_price" android:layout_width="wrap_content" android:layout_height="match_parent"  android:layout_centerVertical="true"  />
+                    <TextView android:id="@+id/p_s_count"
+                        android:layout_toLeftOf="@id/p_s_price" android:text="p_s_count" style="@style/item_sub_title"
+                        android:layout_width="wrap_content"   android:layout_height="match_parent" android:layout_centerVertical="true"  />
+                    <TextView android:id="@+id/p_price" style="@style/item_sub_title"    android:text="p_s_price" android:layout_width="wrap_content" android:layout_height="match_parent"  android:layout_centerVertical="true"  />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            <TextView android:textSize="10.0sp" android:textColor="@color/text_grey" android:ellipsize="marquee" android:id="@id/timeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentRight="true" android:marqueeRepeatLimit="marquee_forever" />
 
         </RelativeLayout>
-        <TextView android:textSize="10.0sp" android:textColor="@color/text_grey" android:ellipsize="marquee" android:id="@id/timeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentRight="true" android:marqueeRepeatLimit="marquee_forever" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/account_password_container"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/input_item_top_single_height"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:background="@drawable/input_bg_bottom_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/flexible_space"
+        android:paddingRight="6.0dip"
+        android:visibility="visible">
+
 
     </RelativeLayout>
-</RelativeLayout>
+
+
+</LinearLayout>

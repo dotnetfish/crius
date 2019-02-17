@@ -70,5 +70,7 @@
     <dimen name="input_item_middle_height">44.0dip</dimen>
     <dimen name="input_item_single_height">51.0dip</dimen>
     <dimen name="input_item_top_bottom_height">46.0dip</dimen>
+    <dimen name="input_item_top_single_height">16.0dip</dimen>
+    <dimen name="input_item_middle_list_single_height">150.0dip</dimen>
 
 </resources>
