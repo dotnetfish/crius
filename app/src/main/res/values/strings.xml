@@ -446,4 +446,8 @@
     <string name="label_congratulation_buy_desc">恭喜您，抢到商品%s,特价：￥%s</string>
     <string name="label_congratulation_buy_cancel">残忍放弃</string>
     <string name="label_buy_go_pay">前往支付</string>
+    <string name="label_go_pay">支付</string>
+    <string name="label_micropay">微信支付</string>
+    <string name="label_alipay">支付宝</string>
+    <string name="label_pay_desc">订单号：%s，请选择支付方式</string>
 </resources>

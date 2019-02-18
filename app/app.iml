@@ -123,6 +123,7 @@
     <orderEntry type="library" name="Gradle: com.j256.ormlite:ormlite-core:5.1@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:support-annotations:27.1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable:23.4.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/zj-db0720/Documents/projects/crius/app/libs/alipaySdk-15.5.9-20181123210601.aar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/Users/zj-db0720/Documents/projects/crius/app/libs/BaiduLBS_Android.jar:unspecified@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-idling-resource:3.0.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.j256.ormlite:ormlite-android:5.1@jar" level="project" />

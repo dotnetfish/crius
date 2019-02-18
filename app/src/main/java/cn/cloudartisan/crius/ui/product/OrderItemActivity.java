@@ -1,8 +1,14 @@
 package cn.cloudartisan.crius.ui.product;
 
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
+
+import com.alipay.sdk.app.PayTask;
+
+import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -19,10 +25,23 @@ import cn.cloudartisan.crius.widget.CustomDialog;
 
 public class OrderItemActivity extends CIMMonitorActivity implements CustomDialog.OnOperationListener, HttpAPIResponser {
 
+    ProductInfo productInfo;
+    double buy_price;
     @Override
     public void initComponents() {
-        /*setDisplayHomeAsUpEnabled(true);
         productInfo = (ProductInfo) getIntent().getSerializableExtra("product");
+        buy_price=(double)getIntent().getSerializableExtra("price");
+        fillForm();
+        TextView btn_buy=(TextView)findViewById(R.id.btn_submit);
+        btn_buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                submitForm();
+            }
+        });
+        requestAddressForm();
+        /*setDisplayHomeAsUpEnabled(true);
+
         commentList = new ArrayList<>();//article.getCommentList();
         adapter = new CustomCommentListAdapter(this, commentList);
         playVideo();
@@ -50,6 +69,58 @@ public class OrderItemActivity extends CIMMonitorActivity implements CustomDialo
                 customDialog.show();
             }
         });*/
+
+    }
+
+    private  void fillForm(){
+        TextView productNumView=(TextView)findViewById(R.id.productNumView);
+        productNumView.setText("1");
+        TextView priceView=(TextView)findViewById(R.id.productPriceView);
+        DecimalFormat df=new DecimalFormat("#.00");
+        priceView.setText("¥"+df.format(this.buy_price));
+        TextView priceSumView=(TextView)findViewById(R.id.productPriceSumView);
+        priceSumView.setText("¥"+df.format(this.buy_price));
+    }
+
+    private void submitForm(){
+        CustomDialog customDialog = new CustomDialog(this);
+        customDialog.setOperationListener(new CustomDialog.OnOperationListener() {
+            @Override
+            public void onLeftClick() {
+
+            }
+
+            @Override
+            public void onRightClick() {
+                final Runnable payRunnable = new Runnable() {
+
+                    @Override
+                    public void run() {
+                        PayTask alipay = new PayTask(OrderItemActivity.this);
+                        Map<String, String> result = alipay.payV2(orderInfo, true);
+                        Log.i("msp", result.toString());
+
+                        Message msg = new Message();
+                        msg.what = SDK_PAY_FLAG;
+                        msg.obj = result;
+                        mHandler.sendMessage(msg);
+                    }
+                };
+
+                // 必须异步调用
+                Thread payThread = new Thread(payRunnable);
+                payThread.start();
+
+            }
+        });
+        customDialog.setTitle(R.string.label_go_pay);
+        DecimalFormat df=new DecimalFormat("#.00");
+        customDialog.setMessage(getString(R.string.label_pay_desc));
+        customDialog.setButtonsText(getString(R.string.label_micropay), getString(R.string.label_alipay));
+        customDialog.show();
+    }
+
+    private void requestAddressForm(){
 
     }
     @Override
