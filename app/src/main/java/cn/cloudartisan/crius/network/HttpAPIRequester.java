@@ -23,6 +23,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class HttpAPIRequester {
+    public final static String METHOD_POST="POST";
+    public final static String METHOD_GET="GET";
     private static String accessToken = "";
     HttpAPIResponser responser;
     static final String TAG = HttpAPIRequester.class.getSimpleName();
