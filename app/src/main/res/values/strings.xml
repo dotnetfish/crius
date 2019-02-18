@@ -86,6 +86,7 @@
     <string name="label_read_all_text">查看全文</string>
     <string name="label_login_password">密码</string>
     <string name="label_login">登录</string>
+    <string name="label_rab">我也要抢</string>
     <string name="label_login_change_account">切换账号</string>
     <string name="label_logout_notify">下线通知</string>
     <string name="label_logout_detail">可能您的帐号刚刚在另一台设备登录，或者你已经被系统强制下线。</string>
@@ -126,6 +127,7 @@
     <string name="label_contacts_frend_count">一共%1$s位联系人</string>
     <string name="label_my_created">我创建的</string>
     <string name="label_my_join">我加入的</string>
+
     <string name="label_group_icon">群徽：</string>
     <string name="label_group_id">群ID：</string>
     <string name="label_group_name">名称：</string>
@@ -400,8 +402,10 @@
     <string name="viewfinderview_status_text1">将二维码/条码放入取景框内</string>
     <string name="viewfinderview_status_text2">即可自动扫描</string>
     <string name="stock_quantity">库存:</string>
-    <string name="price">市场价:</string>
-    <string name="sell_price">售价:</string>
+    <string name="price">市场价:￥</string>
+    <string name="sell_price">售价:￥</string>
+    <string name="lowest_price">成交价:￥</string>
+    <string name="lower_price">正降价:￥</string>
     <string name="sale_out_count">已售:</string>
 
     <string name="forget_pwd">忘记密码</string>
@@ -435,4 +439,11 @@
     <string name="local_name">通讯录名称</string>
     <string name="phoneNum">手机号</string>
 
+    <string name="label_product_detail">产品详情</string>
+    <string name="label_user">参与人数</string>
+    <string name="label_buy_now">立即抢购</string>
+    <string name="label_congratulation_buy">恭喜您，抢到商品</string>
+    <string name="label_congratulation_buy_desc">恭喜您，抢到商品%s,特价：￥%s</string>
+    <string name="label_congratulation_buy_cancel">残忍放弃</string>
+    <string name="label_buy_go_pay">前往支付</string>
 </resources>

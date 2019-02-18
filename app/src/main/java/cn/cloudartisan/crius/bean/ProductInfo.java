@@ -36,6 +36,8 @@ public class ProductInfo
     @DatabaseField
     private  int sales_count;
 
+    private String content;
+
 
     public String getTitle() {
         return title;
@@ -138,5 +140,13 @@ public class ProductInfo
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

@@ -10,9 +10,7 @@
                   android:orientation="vertical"
                   android:layout_width="fill_parent"
                   android:layout_height="130dip">
-      <!-- <cn.cloudartisan.crius.component.BannerImageView
-            android:tag="@drawable/nearby_lbs_banner_bg" android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />-->
+
         <GridView android:id="@+id/fun_grid"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"

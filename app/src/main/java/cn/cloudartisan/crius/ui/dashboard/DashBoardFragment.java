@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.media.SoundPool;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import cn.cloudartisan.crius.R;
 import cn.cloudartisan.crius.adapter.ImageAdapter;
 import cn.cloudartisan.crius.adapter.LivesListAdapter;
+import cn.cloudartisan.crius.adapter.ProductListAdapter;
 import cn.cloudartisan.crius.app.Global;
 import cn.cloudartisan.crius.app.Module;
 import cn.cloudartisan.crius.app.URLConstant;
@@ -36,7 +38,10 @@ import cn.cloudartisan.crius.db.MessageDBManager;
 import cn.cloudartisan.crius.network.HttpAPIRequester;
 import cn.cloudartisan.crius.network.HttpAPIResponser;
 import cn.cloudartisan.crius.service.MessageNotifyService;
+import cn.cloudartisan.crius.service.adapter.Adapter;
+import cn.cloudartisan.crius.service.adapter.ServiceAdapterFactory;
 import cn.cloudartisan.crius.ui.base.CIMMonitorFragment;
+import cn.cloudartisan.crius.ui.product.ProductDetailActivity;
 import cn.cloudartisan.crius.util.AppTools;
 import cn.cloudartisan.crius.util.MessageUtil;
 import cn.cloudartisan.crius.widget.CustomDialog;
@@ -59,9 +64,9 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
 
     ViewFlow viewFlow;
     ImageAdapter imageAdapter;
-    List<ADInfo> ads;
-    List<LiveInfo> newList;
-    LivesListAdapter newsAdapter;
+    List<ProductInfo> ads;
+    List<ProductInfo> newList;
+    ProductListAdapter newsAdapter;
     PushLoadMoreListView newsListView;
     SoundPool soudPool;
 
@@ -82,12 +87,16 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
 
             }
         });
+        String ad_url=URLConstant.getUrl("Product","List");
 
         requester.execute(new TypeReference<DashBoardFragment>() {
                 }.getType(),
                 null,
-                URLConstant.ADS_GET, ADLOADER, "GET");
-
+                ad_url, ADLOADER, "GET");
+        requester.execute(new TypeReference<DashBoardFragment>() {
+                }.getType(),
+                null,
+                ad_url, NEWSLOADER, "GET");
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -95,15 +104,15 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
         View view = inflater.inflate(R.layout.activity_dashboard, container, false);
         newsListView = (PushLoadMoreListView) view.findViewById(R.id.circleListView);
         newsListView.setOnRefreshListener(this);
-        this.newsAdapter = new LivesListAdapter(this.getContext(), this.newList);
+        this.newsAdapter = new ProductListAdapter(this.getContext(), this.newList);
         newsListView.setAdapter(this.newsAdapter);
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                LiveInfo info = newsAdapter.getItem(position);
-                Intent intent = new Intent(getContext(), BaseWebActivity.class);
-                intent.putExtra("url", info.getLink());
-                intent.putExtra("title", info.getTeam1() + " vs " + info.getTeam2());
+                ProductInfo info = newsAdapter.getItem(position);
+                Intent intent = new Intent(getContext(), ProductDetailActivity.class);
+                intent.putExtra("product", info);
+
                 startActivity(intent);
             }
         });
@@ -153,6 +162,9 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
+            Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+            intent.putExtra("product", newList.get(position));
+            startActivity(intent);
 
         /*MessageItemSource data =( (ChatItem)dataList.get(position)).source;
         view.findViewById(R.id.item_newmsg_label).setVisibility(View.GONE);
@@ -237,7 +249,7 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
         Map map = new HashMap();
         map.put("channel_id", 2);
 
-
+        map.put("category_id", "52");
         return map;
     }
 
@@ -254,17 +266,28 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
     private void loadAds(JSONObject json) {
         JSONArray list = json.getJSONArray("data");
         this.ads.clear();
+        Adapter<ProductInfo> productAdapter=ServiceAdapterFactory.getProductAdapter();
         for (Object obj : list
-                ) {
+        ) {
+            ProductInfo productInfo = productAdapter.fromJson((JSONObject) obj);
+
+
             ADInfo info = new ADInfo();
-            JSONObject object = (JSONObject) obj;
-            info.setImage((String) object.get("Logo1"));
-            info.setLink((String) object.get("Link"));
-            info.setTitle((String) object.get("Title"));
-            ads.add(info);
+
+            info.setImage(productInfo.getImgThumbs());
+            info.setLink(productInfo.getLink());
+            info.setTitle(productInfo.getTitle());
+
+            ads.add(productInfo);
         }
+
         this.imageAdapter.notifyDataSetChanged();
+
+
+
+
     }
+
 
     @Override
     public void onSuccess(Object data, List list, Page page, String code, String url) {
@@ -285,22 +308,16 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
 
     public void loadNews(JSONObject json) {
         JSONArray list = json.getJSONArray("data");
-        // this.newList.clear();
-        for (Object obj : list
-                ) {
-            LiveInfo info = new LiveInfo();
-            JSONObject object = (JSONObject) obj;
-            info.setTeam1((String) object.get("Team1"));
-            info.setLink((String) object.get("Link"));
-            info.setTeam2((String) object.get("Team2"));
-            info.setLogo1((String) object.get("Logo1"));
-            info.setLogo2((String) object.get("Logo2"));
 
-            //info.setComments((Integer) object.get("Team2"));
-            //info.setImgThumbs((String)object.get("imgThumbs"));
-            info.setTime((String) object.get("Time"));
-            newList.add(info);
+        Adapter<ProductInfo> productAdapter=ServiceAdapterFactory.getProductAdapter();
+        for (Object obj : list
+        ) {
+            ProductInfo productInfo = productAdapter.fromJson((JSONObject) obj);
+            newList.add(productInfo);
         }
+
+
+
         this.newsAdapter.notifyDataSetChanged();
         //newsListView.showMoreComplete((Boolean)json.get("hasMore"));
         newsListView.showMoreComplete(true);
@@ -316,5 +333,9 @@ public class DashBoardFragment extends CIMMonitorFragment implements AdapterView
         }.getType(), URLConstant.NEWS_INDEX, "newList");
     }
 
+
+    public void onClick(){
+
+    }
 
 }
