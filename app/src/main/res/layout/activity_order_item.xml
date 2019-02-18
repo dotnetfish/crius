@@ -27,7 +27,7 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:id="@+id/main_account_login_country_choose_container"
+
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/input_item_top_bottom_height"
                 android:layout_marginLeft="@dimen/list_item_left_right_margin"
@@ -36,6 +36,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/flexible_space"
                 android:paddingRight="@dimen/flexible_space">
+
                 <TextView
 
                     android:layout_width="wrap_content"
@@ -43,16 +44,15 @@
                     android:layout_marginTop="6.0dip"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:textSize="14.0sp"
-                    android:textStyle="bold"
                     android:text="配送地址"
-                    />
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/rl_input_account_phone"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/input_item_middle_list_single_height"
+                android:layout_height="@dimen/input_item_middle_height"
                 android:layout_marginLeft="@dimen/list_item_left_right_margin"
                 android:layout_marginRight="@dimen/list_item_left_right_margin"
                 android:background="@drawable/input_bg_middle_normal"
@@ -60,73 +60,94 @@
                 android:paddingLeft="@dimen/flexible_space"
                 android:paddingRight="@dimen/flexible_space">
 
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="260dip">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:text="收件人:"
+                        android:textSize="14.0sp"
+                        android:textStyle="bold" />
 
-                   <LinearLayout android:orientation="vertical"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
-                       <LinearLayout
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content">
-                           <TextView
+                    <EditText
+                        style="@style/editAccountInfoTextStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+                </LinearLayout>
+            </RelativeLayout>
 
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:layout_marginTop="6.0dip"
-                               android:ellipsize="end"
-                               android:gravity="center_vertical"
-                               android:textSize="14.0sp"
-                               android:textStyle="bold"
-                               android:text="收件人"
-                               />
-                           <EditText
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content" />
-                       </LinearLayout>
+            <RelativeLayout
 
-                       <LinearLayout
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content">
-                           <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_middle_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_middle_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
 
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:layout_marginTop="6.0dip"
-                               android:ellipsize="end"
-                               android:gravity="center_vertical"
-                               android:textSize="14.0sp"
-                               android:textStyle="bold"
-                               android:text="联系电话"
-                               />
-                           <EditText
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content" />
-                       </LinearLayout>
-                       <LinearLayout
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content">
-                           <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:layout_marginTop="6.0dip"
-                               android:ellipsize="end"
-                               android:gravity="center_vertical"
-                               android:textSize="14.0sp"
-                               android:textStyle="bold"
-                               android:text="邮寄地址"
-                               />
-                           <EditText
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content"  />
-                       </LinearLayout>
-                   </LinearLayout>
-                </RelativeLayout>
+                    <TextView
 
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
 
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:text="联系电话"
+                        android:textSize="14.0sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        style="@style/editAccountInfoTextStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_middle_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_middle_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:text="邮寄地址:"
+                        android:textSize="16.0sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        style="@style/editAccountInfoTextStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+                </LinearLayout>
             </RelativeLayout>
 
 
@@ -164,6 +185,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/flexible_space"
                 android:paddingRight="@dimen/flexible_space">
+
                 <TextView
 
                     android:layout_width="wrap_content"
@@ -171,16 +193,15 @@
                     android:layout_marginTop="6.0dip"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:textSize="14.0sp"
-                    android:textStyle="bold"
                     android:text="订单信息"
-                    />
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
             <RelativeLayout
 
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/input_item_middle_list_single_height"
+                android:layout_height="@dimen/input_item_middle_height"
                 android:layout_marginLeft="@dimen/list_item_left_right_margin"
                 android:layout_marginRight="@dimen/list_item_left_right_margin"
                 android:background="@drawable/input_bg_middle_normal"
@@ -188,99 +209,141 @@
                 android:paddingLeft="@dimen/flexible_space"
                 android:paddingRight="@dimen/flexible_space">
 
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="260dip">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="商品名称"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="迪奥三号"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_middle_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_middle_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
 
 
-                    <LinearLayout android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
+                <TextView
 
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="6.0dip"
-                                android:ellipsize="end"
-                                android:gravity="center_vertical"
-                                android:textSize="14.0sp"
-                                android:textStyle="bold"
-                                android:text="商品名称"
-                                />
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="商品数量"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
 
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="6.0dip"
-                                android:ellipsize="end"
-                                android:gravity="center_vertical"
-                                android:textSize="14.0sp"
-                                android:textStyle="bold"
-                                android:text="商品数量"
-                                />
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
+                <TextView
 
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="6.0dip"
-                                android:ellipsize="end"
-                                android:gravity="center_vertical"
-                                android:textSize="14.0sp"
-                                android:textStyle="bold"
-                                android:text="单价"
-                                />
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"  />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="2"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
 
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="6.0dip"
-                                android:ellipsize="end"
-                                android:gravity="center_vertical"
-                                android:textSize="14.0sp"
-                                android:textStyle="bold"
-                                android:text="合计"
-                                />
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"  />
-                        </LinearLayout>
+            </RelativeLayout>
 
-                    </LinearLayout>
-                </RelativeLayout>
+            <RelativeLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_middle_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_middle_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="单价"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="¥123.00"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/input_item_middle_height"
+                android:layout_marginLeft="@dimen/list_item_left_right_margin"
+                android:layout_marginRight="@dimen/list_item_left_right_margin"
+                android:background="@drawable/input_bg_middle_normal"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/flexible_space"
+                android:paddingRight="@dimen/flexible_space">
 
 
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="合计"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="¥123.00"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
 
             <RelativeLayout
-                android:id="@+id/account_password_container"
+
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/input_item_top_bottom_height"
+                android:layout_height="@dimen/input_item_top_single_height"
                 android:layout_marginLeft="@dimen/list_item_left_right_margin"
                 android:layout_marginRight="@dimen/list_item_left_right_margin"
                 android:background="@drawable/input_bg_bottom_normal"
@@ -289,24 +352,6 @@
                 android:paddingRight="6.0dip"
                 android:visibility="visible">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="支付宝"
-                        style="@style/ButtonStyle.Blue"
-                        />
-                    <TextView
-
-
-                        android:text="微信"
-                        style="@style/ButtonStyle.Blue"
-                        />
-                </LinearLayout>
 
             </RelativeLayout>
 
@@ -314,6 +359,30 @@
         </LinearLayout>
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/padding_10dip">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                style="@style/ButtonStyle.Blue"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:text="支付宝" />
+
+            <TextView
+
+
+                style="@style/ButtonStyle.Blue"
+                android:text="微信" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

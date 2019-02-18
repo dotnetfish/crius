@@ -84,7 +84,7 @@
             android:layout_toLeftOf="@id/edit_phone_error"
             android:layout_toRightOf="@id/register_phone_state_code"
             android:hint="@string/common_account"
-
+            android:text="test"
             android:maxLength="11" />
     </RelativeLayout>
 
@@ -132,6 +132,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="6.0dip"
             android:hint="@string/loginPassword"
+            android:text="123456"
             android:inputType="textPassword" />
     </RelativeLayout>
 
