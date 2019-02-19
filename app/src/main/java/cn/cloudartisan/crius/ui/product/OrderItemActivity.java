@@ -67,6 +67,7 @@ public class OrderItemActivity extends CIMMonitorActivity implements CustomDialo
     public void initComponents() {
         productInfo = (ProductInfo) getIntent().getSerializableExtra("product");
         buy_price=(double)getIntent().getSerializableExtra("price");
+        orderId=getIntent().getStringExtra("order_id");
         fillForm();
         TextView btn_buy=(TextView)findViewById(R.id.btn_submit);
         btn_buy.setOnClickListener(new View.OnClickListener() {
@@ -120,31 +121,15 @@ public class OrderItemActivity extends CIMMonitorActivity implements CustomDialo
     }
 
     private void submitForm(){
-        CustomDialog customDialog = new CustomDialog(this);
-        customDialog.setOperationListener(new CustomDialog.OnOperationListener() {
-            @Override
-            public void onLeftClick() {
+        String order_submit=URLConstant.parseUrl("order","submit");
+        apiRequester.execute(new TypeReference<OrderItemActivity>(){}.getType(),null,order_submit,
+                "order_submit",HttpAPIRequester.METHOD_GET);
 
-            }
 
-            @Override
-            public void onRightClick() {
-                String url_pay_auth= URLConstant.getUrl("alipay","auth");
-
-                apiRequester.execute(new TypeReference<OrderItemActivity>(){}.getType(),null,
-                        url_pay_auth,ALIPAY_AUTH_REQUEST,HttpAPIRequester.METHOD_GET);
-
-            }
-        });
-        customDialog.setTitle(R.string.label_go_pay);
-        DecimalFormat df=new DecimalFormat("#.00");
-        customDialog.setMessage(String.format(getString(R.string.label_pay_desc),orderId));
-        customDialog.setButtonsText(getString(R.string.label_micropay), getString(R.string.label_alipay));
-        customDialog.show();
     }
 
     private void requestAddressForm(){
-        String address_url=URLConstant.getUrl("address","query");
+        String address_url=URLConstant.parseUrl("delivery","address");
         apiRequester.execute(new TypeReference<OrderItemActivity>(){}.getType(),null,address_url,ADDRESS_REQUEST,HttpAPIRequester.METHOD_GET);
     }
     @Override
@@ -159,6 +144,12 @@ public class OrderItemActivity extends CIMMonitorActivity implements CustomDialo
                 map.put("uid","test");
                 map.put("orderId",orderId);
 
+            case "order_submit":
+                map.put("order_id",orderId);
+                map.put("address","sdfas");
+                map.put("name","dfa sdf");
+                map.put("phone","12314234");
+                break;
                 default:
                     break;
 
@@ -169,27 +160,73 @@ public class OrderItemActivity extends CIMMonitorActivity implements CustomDialo
     @Override
     public void onFailed(Exception p1) {
 
+        hideProgressDialog();
+        final CustomDialog customDialog = new CustomDialog(this);
+        customDialog.setOperationListener(new CustomDialog.OnOperationListener() {
+            @Override
+            public void onLeftClick() {
+                customDialog.hide();
+            }
+
+            @Override
+            public void onRightClick() {
+
+                customDialog.hide();
+            }
+        });
+        customDialog.setTitle(R.string.label_go_pay);
+
+        customDialog.setMessage(p1.getMessage());
+        customDialog.setButtonsText(getString(R.string.label_micropay), getString(R.string.label_alipay));
+        customDialog.show();
+
     }
 
     @Override
     public void onRequest() {
-
+        showProgressDialog("加载中...");
     }
 
     @Override
-    public void onSuccess(Object p1, List p2, Page p3, String p4, String p5) {
-        switch (p4){
+    public void onSuccess(Object data, List p2, Page p3, String code, String url) {
+        hideProgressDialog();
+        switch (code){
             case "alipay":
-                    alipay_pay(p5);
+                    alipay_pay("");
                 break;
             case "micro_msg":
-                microMsg_pay(p5);
+                microMsg_pay("");
+            case "order_submit" :
+                showPayWay(data);
                 default:
                     break;
         }
 
 
 
+    }
+    private void showPayWay(Object data){
+        CustomDialog customDialog = new CustomDialog(this);
+        customDialog.setOperationListener(new CustomDialog.OnOperationListener() {
+            @Override
+            public void onLeftClick() {
+
+            }
+
+            @Override
+            public void onRightClick() {
+                String url_pay_auth= URLConstant.getUrl("payment","alipay/sign");
+
+                apiRequester.execute(new TypeReference<OrderItemActivity>(){}.getType(),null,
+                        url_pay_auth,ALIPAY_AUTH_REQUEST,HttpAPIRequester.METHOD_GET);
+
+            }
+        });
+        customDialog.setTitle(R.string.label_go_pay);
+        DecimalFormat df=new DecimalFormat("#.00");
+        customDialog.setMessage(String.format(getString(R.string.label_pay_desc),orderId));
+        customDialog.setButtonsText(getString(R.string.label_micropay), getString(R.string.label_alipay));
+        customDialog.show();
     }
 
     private void microMsg_pay(final String orderInfo){

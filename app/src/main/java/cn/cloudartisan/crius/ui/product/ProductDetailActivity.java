@@ -19,6 +19,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.danikula.videocache.HttpProxyCacheServer;
 
@@ -57,6 +58,7 @@ public class ProductDetailActivity  extends CIMMonitorActivity implements Custom
     ListView listView;
     User self;
     Timer timer;
+    private String order_id;
     TextView currentPriceView;
     double currentPrice;
     private List<User> userList;
@@ -85,17 +87,17 @@ public class ProductDetailActivity  extends CIMMonitorActivity implements Custom
            @Override
            public void onClick(View view) {
               // Toast.makeText(ProductDetailActivity.this,"Buy item"+getCurrentPrice(),Toast.LENGTH_LONG);
-               buyPrice=currentPrice;
-               DecimalFormat df = new DecimalFormat("#.00");
-               customDialog = new CustomDialog(ProductDetailActivity.this);
-               customDialog.setOperationListener(ProductDetailActivity.this);
-               customDialog.setTitle(R.string.label_congratulation_buy);
-               customDialog.setMessage(String.format(getString(R.string.label_congratulation_buy_desc),productInfo.getTitle(),df.format(buyPrice)));
-               customDialog.setButtonsText(getString(R.string.label_congratulation_buy_cancel), getString(R.string.label_buy_go_pay));
-               customDialog.show();
+               orderItem();
            }
        });
+        commentRequester=new HttpAPIRequester(ProductDetailActivity.this);
+    }
 
+    private void orderItem(){
+        commentRequester.execute(new TypeReference<ProductDetailActivity>(){}.getType(),
+                null,
+                URLConstant.parseUrl("product","order"),
+                "product_order","POST");
     }
 
     private void startSchedule(){
@@ -233,23 +235,40 @@ public class ProductDetailActivity  extends CIMMonitorActivity implements Custom
     }
 
     public void onSuccess(Object data, List list, Page page, String code, String url) {
-        if (CIMConstant.ReturnCode.CODE_200.equals(code)) {
-            resetApiParams();
+        hideProgressDialog();
+        if(code.equals("product_order")){
+            JSONObject jsonObject=(JSONObject) ((JSONObject)data).get("data");
+             buyPrice=jsonObject.getDouble("price");
+              order_id=jsonObject.getString("order_id");
+            buyPrice=currentPrice;
+            DecimalFormat df = new DecimalFormat("#.00");
+            customDialog = new CustomDialog(ProductDetailActivity.this);
+            customDialog.setOperationListener(ProductDetailActivity.this);
+            customDialog.setTitle(R.string.label_congratulation_buy);
+            customDialog.setMessage(String.format(getString(R.string.label_congratulation_buy_desc),productInfo.getTitle(),df.format(buyPrice)));
+            customDialog.setButtonsText(getString(R.string.label_congratulation_buy_cancel), getString(R.string.label_buy_go_pay));
+            customDialog.show();
         }
     }
 
     public void onFailed(Exception e) {
+        hideProgressDialog();
     }
 
     public Map getRequestParams(String code) {
-      /*  apiParams.put("articleId", article.gid);
-        apiParams.put("authorAccount", article.account);
-        apiParams.put("name", self.getName());
-        apiParams.put("account", self.getAccount());*/
-        return apiParams;
+        HashMap<String,Object> parameters=new HashMap<>();
+        switch (code){
+            case "product_order":
+                parameters.put("activity_sno",100120012);
+                break;
+
+        }
+
+        return parameters;
     }
 
     public void onRequest() {
+        showProgressDialog("霸座中...");
     }
 
     public void resetApiParams() {
@@ -301,6 +320,7 @@ public class ProductDetailActivity  extends CIMMonitorActivity implements Custom
        Intent intent =new Intent(this,OrderItemActivity.class);
        intent.putExtra("price",buyPrice);
        intent.putExtra("product",productInfo);
+       intent.putExtra("order_id",order_id);
        startActivity(intent);
     }
 
